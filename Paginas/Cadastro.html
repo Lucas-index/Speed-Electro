@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="/index.html" class="nav-link">Início</a>
+                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="/index.html#produtos" class="nav-link">Produto</a>
+                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="/Paginas/Login.html" class="btn btn-outline">Login</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="min-height: 100vh; display: flex; align-items: center; padding: 120px 0;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <div class="section-badge" style="margin-bottom: 16px;">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Nova Conta</span>
+                        </div>
+                        <h2 class="section-title">Criar Conta</h2>
+                        <p class="section-description">Cadastre-se e tenha acesso a ofertas exclusivas</p>
+                    </div>
+
+                    <form id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Nome</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Sobrenome</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Seu sobrenome">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDate">Data de Nascimento</label>
+                                <input type="date" id="birthDate" name="birthDate" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Senha</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirme sua senha">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    <span>Aceito os <a href="#" class="terms-link">Termos de Uso</a> e <a href="#" class="terms-link">Política de Privacidade</a></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    <span>Quero receber ofertas e novidades por e-mail</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large" id="registerBtn">
+                            <i class="fas fa-user-plus"></i>
+                            Criar Conta
+                        </button>
+
+                        <div style="text-align: center; padding: 20px 0; border-top: 1px solid var(--gray-800); margin-top: 24px;">
+                            <p style="color: var(--gray-400); margin-bottom: 16px;">Já tem uma conta?</p>
+                            <a href="/Paginas/Login.html" class="btn btn-outline btn-full">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Fazer Login
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    GoogleAuthProvider, 
+    FacebookAuthProvider, 
+    signInWithPopup 
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { 
+    getFirestore, 
+    doc, 
+    setDoc, 
+    getDoc, 
+    updateDoc 
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // Configuração do Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
+  authDomain: "seedelectro.firebaseapp.com",
+  projectId: "seedelectro",
+  storageBucket: "seedelectro.firebasestorage.app",
+  messagingSenderId: "275204209258",
+  appId: "1:275204209258:web:aec29e2797350ac136e813",
+  measurementId: "G-RQY204S4E0"
+  };
+
+  // Inicializa Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Exemplo de cadastro
+  document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(doc(db, "users", userCredential.user.uid), { cart: [], pcConfig: {} });
+      alert("Cadastro realizado com sucesso!");
+    } catch (error) {
+      alert("Erro no cadastro: " + error.message);
+    }
+  });
+</script>
+
+</body>
+</html>

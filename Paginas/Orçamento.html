@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento Gratuito - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="produtos.html" class="nav-link">Produtos</a>
+                    <a href="montar-pc.html" class="nav-link">Montar PC</a>
+                    <a href="explorar.html" class="nav-link">Explorar</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="carrinho.html" class="icon-btn cart-btn" title="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 120px 0 80px;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-calculator"></i>
+                    <span>Orçamento Gratuito</span>
+                </div>
+                <h2 class="section-title">
+                    Solicite seu <span class="text-gradient">Orçamento</span> Personalizado
+                </h2>
+                <p class="section-description">
+                    Receba uma proposta sob medida para suas necessidades
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Process -->
+    <section class="build-section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="build-content">
+                <div class="build-info">
+                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 24px;">Como Funciona</h3>
+                    
+                    <div class="build-process">
+                        <div class="process-step">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <h4>Conte suas Necessidades</h4>
+                                <p>Descreva o que você precisa e qual seu orçamento</p>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h4>Análise Especializada</h4>
+                                <p>Nossa equipe analisa e monta a melhor configuração</p>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <h4>Proposta Detalhada</h4>
+                                <p>Receba orçamento completo em até 2 horas</p>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Aprovação e Compra</h4>
+                                <p>Aprove o orçamento e finalize sua compra</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="build-benefits">
+                        <h4>Por que solicitar orçamento?</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-gift"></i>
+                                <span>Descontos exclusivos</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Consultoria especializada</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Melhor custo-benefício</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-tools"></i>
+                                <span>Montagem e suporte inclusos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget Form -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Solicitar Orçamento</h3>
+                        <p>Preencha os dados e receba sua proposta</p>
+                    </div>
+
+                    <form id="budgetForm">
+                        <div class="form-group">
+                            <label for="budgetType">Tipo de Orçamento</label>
+                            <select id="budgetType" name="budgetType" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="pc-gamer">PC Gamer Completo</option>
+                                <option value="pc-trabalho">PC para Trabalho</option>
+                                <option value="pc-criacao">PC para Criação de Conteúdo</option>
+                                <option value="upgrade">Upgrade de Componentes</option>
+                                <option value="servidor">Servidor/Workstation</option>
+                                <option value="notebook">Notebook</option>
+                                <option value="perifericos">Periféricos e Acessórios</option>
+                                <option value="setup-completo">Setup Completo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="minBudget">Orçamento Mínimo</label>
+                                <input type="text" id="minBudget" name="minBudget" placeholder="R$ 0,00">
+                            </div>
+                            <div class="form-group">
+                                <label for="maxBudget">Orçamento Máximo</label>
+                                <input type="text" id="maxBudget" name="maxBudget" placeholder="R$ 0,00">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usage">Principal Uso</label>
+                            <select id="usage" name="usage" required>
+                                <option value="">Selecione o uso principal</option>
+                                <option value="gaming">Gaming (jogos)</option>
+                                <option value="trabalho">Trabalho/Escritório</option>
+                                <option value="design">Design Gráfico</option>
+                                <option value="video">Edição de Vídeo</option>
+                                <option value="streaming">Streaming/Lives</option>
+                                <option value="programacao">Programação</option>
+                                <option value="estudos">Estudos</option>
+                                <option value="multiplo">Uso Múltiplo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requirements">Requisitos Específicos</label>
+                            <textarea id="requirements" name="requirements" rows="4" required placeholder="Descreva suas necessidades: jogos que pretende rodar, programas que usa, performance desejada, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentSetup">Equipamento Atual (se houver)</label>
+                            <textarea id="currentSetup" name="currentSetup" rows="3" placeholder="Descreva seu equipamento atual: processador, placa de vídeo, memória, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferences">Preferências de Marca</label>
+                            <textarea id="preferences" name="preferences" rows="2" placeholder="Tem preferência por alguma marca específica? Intel/AMD, NVIDIA/AMD, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline">Prazo para Compra</label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="">Selecione o prazo</option>
+                                <option value="imediato">Imediato (até 1 semana)</option>
+                                <option value="curto">Curto prazo (1-4 semanas)</option>
+                                <option value="medio">Médio prazo (1-3 meses)</option>
+                                <option value="longo">Longo prazo (3+ meses)</option>
+                                <option value="flexivel">Flexível</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Serviços Adicionais</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="montagem">
+                                    <span class="checkmark"></span>
+                                    <span>Montagem profissional (+R$ 299)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="instalacao">
+                                    <span class="checkmark"></span>
+                                    <span>Instalação de programas (+R$ 149)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="entrega">
+                                    <span class="checkmark"></span>
+                                    <span>Entrega e instalação em casa (+R$ 199)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="suporte">
+                                    <span class="checkmark"></span>
+                                    <span>Suporte técnico 6 meses (+R$ 299)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactTime">Melhor horário para contato</label>
+                            <select id="contactTime" name="contactTime">
+                                <option value="">Selecione o horário</option>
+                                <option value="manha">Manhã (8h às 12h)</option>
+                                <option value="tarde">Tarde (12h às 18h)</option>
+                                <option value="noite">Noite (18h às 22h)</option>
+                                <option value="qualquer">Qualquer horário</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter" value="yes">
+                                    <span class="checkmark"></span>
+                                    <span>Quero receber ofertas e novidades por e-mail</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large" id="budgetBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            Solicitar Orçamento Gratuito
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Examples -->
+    <section class="services" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Exemplos de Orçamentos</span>
+                </div>
+                <h2 class="section-title">
+                    Configurações <span class="text-gradient">Populares</span>
+                </h2>
+                <p class="section-description">
+                    Veja alguns exemplos de orçamentos que já fizemos
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon orange">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="service-badge">PC Gamer</div>
+                    </div>
+                    <h3>Setup Gaming</h3>
+                    <div class="service-price">R$ 4.500 - R$ 8.000</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Ryzen 5/7 ou Intel i5/i7</li>
+                        <li><i class="fas fa-check"></i>RTX 4060/4070</li>
+                        <li><i class="fas fa-check"></i>16GB/32GB RAM</li>
+                        <li><i class="fas fa-check"></i>SSD 1TB</li>
+                        <li><i class="fas fa-check"></i>Monitor 144Hz incluído</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon red">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="service-badge">Trabalho</div>
+                    </div>
+                    <h3>PC Profissional</h3>
+                    <div class="service-price">R$ 2.500 - R$ 5.000</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Processador eficiente</li>
+                        <li><i class="fas fa-check"></i>16GB RAM</li>
+                        <li><i class="fas fa-check"></i>SSD 500GB</li>
+                        <li><i class="fas fa-check"></i>Placa de vídeo integrada</li>
+                        <li><i class="fas fa-check"></i>Monitor 4K incluído</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon orange">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="service-badge">Criação</div>
+                    </div>
+                    <h3>Workstation</h3>
+                    <div class="service-price">R$ 8.000 - R$ 15.000</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Ryzen 9 ou Intel i9</li>
+                        <li><i class="fas fa-check"></i>RTX 4080/4090</li>
+                        <li><i class="fas fa-check"></i>32GB/64GB RAM</li>
+                        <li><i class="fas fa-check"></i>SSD 2TB</li>
+                        <li><i class="fas fa-check"></i>Monitor profissional</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px;">
+                <p style="color: var(--gray-400); margin-bottom: 24px;">
+                    *Valores aproximados incluindo montagem e garantia. Orçamento final pode variar.
+                </p>
+                <a href="#" class="btn btn-outline btn-large" onclick="document.getElementById('budgetForm').scrollIntoView();">
+                    <i class="fas fa-calculator"></i>
+                    Solicitar Meu Orçamento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Phone mask
+        document.getElementById('phone').addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+            this.value = value;
+        });
+
+        // Price masks
+        function applyPriceMask(element) {
+            element.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');
+                if (value) {
+                    value = (value / 100).toLocaleString('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    });
+                    this.value = value;
+                }
+            });
+        }
+
+        applyPriceMask(document.getElementById('minBudget'));
+        applyPriceMask(document.getElementById('maxBudget'));
+
+        // Form submission
+        document.getElementById('budgetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('budgetBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando solicitação...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Orçamento Solicitado!';
+                btn.style.background = '#10b981';
+                
+                alert('Orçamento solicitado com sucesso!\nVocê receberá nossa proposta por e-mail em até 2 horas.');
+                
+                setTimeout(() => {
+                    window.location.href = '/index.html';
+                }, 2000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

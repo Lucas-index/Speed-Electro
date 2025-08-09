@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montar PC Personalizado - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="/index.html" class="nav-link">Início</a>
+                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="/index.html#produtos" class="nav-link">Produto</a>
+                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cartCount">0</span>
+</a>
+                    <a href="/Paginas/Cadastro.html" class="icon-btn" title="Minha Conta">
+    <i class="fas fa-user"></i>
+</a>
+
+                    <a href="/Paginas/Cadastro.html" class="btn btn-outline">Login</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-tools"></i>
+                    <span>Configurador Personalizado</span>
+                </div>
+                <h2 class="section-title">
+                    Monte seu <span class="text-gradient">PC dos Sonhos</span>
+                </h2>
+                <p class="section-description">
+                    Configure cada componente e crie o computador perfeito para você
+                </p>
+            </div>
+            <div class="container">
+  <div class="banner-container">
+    <img src="/Senai .png" alt="Promoção Especial - PCs Gamer" class="promo-image" />
+  </div>
+</div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="products" style="padding: 40px 0 80px;">
+        <div class="container">
+            <div class="builder-grid">
+                 PC Builder 
+                <div class="service-card" style="padding: 32px;">
+                    <div class="builder-header" style="margin-bottom: 32px;">
+                        <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 8px;">Configurador de PC</h3>
+                        <p style="color: var(--gray-400);">Selecione cada componente para montar seu PC personalizado</p>
+                    </div>
+
+                     Usage Type Selection 
+                    <div class="usage-selection" style="margin-bottom: 32px;">
+                        <h4 style="color: var(--white); margin-bottom: 16px;">Qual será o uso principal?</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                            <div class="usage-card active" data-usage="gaming" onclick="selectUsage('gaming')">
+                                <i class="fas fa-gamepad"></i>
+                                <h5>Gaming</h5>
+                                <p>Jogos em alta qualidade</p>
+                            </div>
+                            <div class="usage-card" data-usage="work" onclick="selectUsage('work')">
+                                <i class="fas fa-briefcase"></i>
+                                <h5>Trabalho</h5>
+                                <p>Produtividade e escritório</p>
+                            </div>
+                            <div class="usage-card" data-usage="creator" onclick="selectUsage('creator')">
+                                <i class="fas fa-video"></i>
+                                <h5>Criação</h5>
+                                <p>Edição e renderização</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     Components Selection 
+                    <div class="components-builder">
+                         Processor 
+                        <div class="component-section">
+                            <div class="component-header">
+                                <div class="fas fa-microchip component-icon">
+                                </div>
+                                <div class="component-info">
+                                    <h4>Processador (CPU)</h4>
+                                    <p>O cérebro do seu computador</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="cpu" data-price="1299" onclick="selectComponent('cpu', this)">
+                                    <div class="option-image">
+                                        <img src="/I5.webp" alt="Intel i5">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>Intel Core i5-13600K</h5>
+                                        <p>14 núcleos, 20 threads, 3.5GHz</p>
+                                        <div class="option-price">R$ 1.299,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="cpu" data-price="1899" onclick="selectComponent('cpu', this)">
+                                    <div class="option-image">
+                                        <img src="/Ryzen 5 5500.webp" alt="Intel i7">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>AMD Ryzen 5 5500</h5>
+                                        <p>6 núcleos, 12 threads, 3.6GHz</p>
+                                        <div class="option-price">R$ 549,9</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="cpu" data-price="2799" onclick="selectComponent('cpu', this)">
+                                    <div class="option-image">
+                                        <img src="/Ryzen 7 5700x .webp" alt="Intel i9">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>AMD Ryzen 7 5700X</h5>
+                                        <p>8 núcleos, 16 threads, 3.7GHz</p>
+                                        <div class="option-price">R$ 949,99</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Graphics Card 
+                        <div class="component-section">
+                            <div class="component-header">
+                                <div class="fas fa-memory component-icon">
+                                    </div>
+                                <div class="component-info">
+                                    <h4>Placa de Vídeo (GPU)</h4>
+                                    <p>Para jogos e aplicações gráficas</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="gpu" data-price="2299" onclick="selectComponent('gpu', this)">
+                                    <div class="option-image">
+                                        <img src="/4060.webp" alt="RTX 4060">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>NVIDIA RTX 4060</h5>
+                                        <p>8GB GDDR6, Ray Tracing</p>
+                                        <div class="option-price">R$ 2.299,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="gpu" data-price="3299" onclick="selectComponent('gpu', this)">
+                                    <div class="option-image">
+                                        <img src="/6600.webp" alt="RTX 4070">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>AMD RX 6600</h5>
+                                        <p>8GB GDDR6, FSR</p>
+                                        <div class="option-price">R$ 1.599,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="gpu" data-price="5999" onclick="selectComponent('gpu', this)">
+                                    <div class="option-image">
+                                        <img src="/3060.webp" alt="RTX 4080">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>NVIDIA RTX 3060</h5>
+                                        <p>12GB GDDR6, Ray Tracing</p>
+                                        <div class="option-price">R$ 1.999,99</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Memory 
+                        <div class="component-section">
+                            <div class=" component-header">
+                                <div class="fas fa-memory component-icon">
+                                    </div>
+                                </div>
+                                <div class="component-info">
+                                    <h4>Memória RAM</h4>
+                                    <p>Para multitarefas e performance</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="ram" data-price="399" onclick="selectComponent('ram', this)">
+                                    <div class="option-image">
+                                        <img src="/Ram 8.jpg" alt="16GB RAM">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>16GB DDR4 3200MHz</h5>
+                                        <p>2x8GB, Corsair Vengeance LPX</p>
+                                        <div class="option-price">R$ 538,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="ram" data-price="799" onclick="selectComponent('ram', this)">
+                                    <div class="option-image">
+                                        <img src="/Ram 16.webp" alt="32GB RAM">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>32GB DDR4 3600MHz</h5>
+                                        <p>2x16GB, Corsair Vengeance PRO</p>
+                                        <div class="option-price">R$ 615,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Storage 
+                        <div class="component-section">
+                            <div class="component-header">
+                                <div class="fas fa-hdd component-icon">
+                                    </div>
+                                </div>
+                                <div class="component-info">
+                                    <h4>Armazenamento</h4>
+                                    <p>SSD para sistema e jogos</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="storage" data-price="299" onclick="selectComponent('storage', this)">
+                                    <div class="option-image">
+                                        <img src="/SSD 500.webp" alt="500GB SSD">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>SSD 500GB NVMe</h5>
+                                        <p>Samsung 980, 3.500 MB/s</p>
+                                        <div class="option-price">R$ 299,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="storage" data-price="599" onclick="selectComponent('storage', this)">
+                                    <div class="option-image">
+                                        <img src="/SSD 1T.jpg" alt="1TB SSD">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>SSD 1TB NVMe</h5>
+                                        <p>Samsung 980 PRO, 7.000 MB/s</p>
+                                        <div class="option-price">R$ 599,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Motherboard 
+                        <div class="component-section">
+                            <div class="component-header">
+                                <div class="fas fa-microchip component-icon">
+                                    </div>
+                                </div>
+                                <div class="component-info">
+                                    <h4>Placa Mãe</h4>
+                                    <p>Conecta todos os componentes</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="motherboard" data-price="699" onclick="selectComponent('motherboard', this)">
+                                    <div class="option-image">
+                                        <img src="/Wifi.jpg" alt="B660 Motherboard">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>ASUS B660M-A WiFi</h5>
+                                        <p>LGA 1700, DDR4, WiFi 6</p>
+                                        <div class="option-price">R$ 699,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="motherboard" data-price="1299" onclick="selectComponent('motherboard', this)">
+                                    <div class="option-image">
+                                        <img src="/Elite.webp" alt="Z690 Motherboard">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>Gigabyte B550M Aorus Elite</h5>
+                                        <p>AM4, DDR4</p>
+                                        <div class="option-price">R$ 899,99</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Power Supply 
+                        <div class="component-section">
+                            <div class="component-header">
+                                <div class="fas fa-plug component-icon">
+                                    </div>
+                                </div>
+                                <div class="component-info">
+                                    <h4>Fonte de Alimentação</h4>
+                                    <p>Energia estável para todos os componentes</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="psu" data-price="399" onclick="selectComponent('psu', this)">
+                                    <div class="option-image">
+                                        <img src="/CX650.jpg" alt="650W PSU">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>Corsair CV650 80+ Bronze</h5>
+                                        <p>650W, Modular, 80+ Bronze</p>
+                                        <div class="option-price">R$ 399,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="psu" data-price="699" onclick="selectComponent('psu', this)">
+                                    <div class="option-image">
+                                        <img src="/RM750x.webp" alt="750W PSU">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>Corsair RM750x 80+ Gold</h5>
+                                        <p>750W, Full Modular, 80+ Gold</p>
+                                        <div class="option-price">R$ 699,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Case 
+                        <div class="component-section">
+                            <div class="component-header">
+                                <div class="fas fa-cube component-icon">
+                                    </div>
+                                </div>
+                                <div class="component-info">
+                                    <h4>Gabinete</h4>
+                                    <p>Proteção e estilo para seu PC</p>
+                                </div>
+                                <div class="component-status">
+                                    <span class="status-badge required">Obrigatório</span>
+                                </div>
+                            </div>
+                            <div class="component-options">
+                                <div class="component-option active" data-component="case" data-price="299" onclick="selectComponent('case', this)">
+                                    <div class="option-image">
+                                        <img src="/Corsair 4000D Airflow.webp" alt="Mid Tower Case">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>Corsair 4000D Airflow</h5>
+                                        <p>Mid Tower, Vidro Temperado</p>
+                                        <div class="option-price">R$ 299,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="component-option" data-component="case" data-price="599" onclick="selectComponent('case', this)">
+                                    <div class="option-image">
+                                        <img src="/Corsair iCUE 5000X RGB.jpg" alt="RGB Case">
+                                    </div>
+                                    <div class="option-details">
+                                        <h5>Corsair iCUE 5000X RGB</h5>
+                                        <p>Mid Tower, RGB, 3x Fans</p>
+                                        <div class="option-price">R$ 599,00</div>
+                                    </div>
+                                    <div class="option-select">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     Assembly Service 
+                    <div class="assembly-service" style="margin-top: 32px; padding: 24px; background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.3); border-radius: 12px;">
+                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                            <i class="fas fa-tools" style="color: var(--orange-500); font-size: 24px;"></i>
+                            <div>
+                                <h4 style="color: var(--white); margin-bottom: 4px;">Serviço de Montagem</h4>
+                                <p style="color: var(--gray-400); font-size: 14px;">Montagem profissional com garantia</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="assemblyService" checked>
+                                <span class="checkmark"></span>
+                                <span style="color: var(--white);">Incluir montagem profissional (+R$ 299,00)</span>
+                            </label>
+                        </div>
+                        <ul style="margin-top: 12px; color: var(--gray-300); font-size: 14px;">
+                            <li style="margin-bottom: 4px;"><i class="fas fa-check" style="color: var(--orange-500); margin-right: 8px;"></i>Montagem e testes completos</li>
+                            <li style="margin-bottom: 4px;"><i class="fas fa-check" style="color: var(--orange-500); margin-right: 8px;"></i>Instalação do sistema operacional</li>
+                            <li><i class="fas fa-check" style="color: var(--orange-500); margin-right: 8px;"></i>Garantia de 2 anos no serviço</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 Build Summary 
+                <div class="service-card" style="padding: 32px; position: sticky; top: 100px;">
+                    <h3 style="color: var(--white); margin-bottom: 24px;">Resumo da Configuração</h3>
+                    
+                    <div class="build-preview" style="margin-bottom: 24px;">
+                        <div class="preview-image" style="width: 100%; height: 200px; background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-700) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-desktop" style="font-size: 48px; color: var(--orange-500);"></i>
+                        </div>
+                        <h4 style="color: var(--white); text-align: center; margin-bottom: 8px;">PC Gamer Personalizado</h4>
+                        <p style="color: var(--gray-400); text-align: center; font-size: 14px;">Configuração otimizada para gaming</p>
+                    </div>
+
+                    <div class="selected-components" style="margin-bottom: 24px;">
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Processador</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">Intel Core i5-13600K</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 1.299</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Placa de Vídeo</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">NVIDIA RTX 4060</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 2.299</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Memória RAM</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">16GB DDR4 3200MHz</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 399</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Armazenamento</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">SSD 500GB NVMe</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 299</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Placa Mãe</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">ASUS B660M-A WiFi</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 699</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Fonte</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">Corsair CV650 80+ Bronze</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 399</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Gabinete</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">Corsair 4000D Airflow</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 299</div>
+                        </div>
+                        <div class="component-summary" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-700);">
+                            <div>
+                                <div style="color: var(--white); font-size: 14px; font-weight: 500;">Montagem</div>
+                                <div style="color: var(--gray-400); font-size: 12px;">Serviço profissional</div>
+                            </div>
+                            <div style="color: var(--orange-500); font-weight: 600;">R$ 299</div>
+                        </div>
+                    </div>
+
+                    <div class="build-totals">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--gray-400);">Subtotal:</span>
+                            <span style="color: var(--white);" id="subtotal">R$ 5.993,00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--gray-400);">Desconto:</span>
+                            <span style="color: var(--green-500);" id="discount">-R$ 0,00</span>
+                        </div>
+                        <hr style="border: none; border-top: 1px solid var(--gray-700); margin: 16px 0;">
+                        <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 600;">
+                            <span style="color: var(--white);">Total:</span>
+                            <span style="color: var(--orange-500);" id="total">R$ 5.993,00</span>
+                        </div>
+                        <p style="color: var(--gray-400); font-size: 12px; text-align: center; margin-top: 8px;">
+                            12x de R$ 499,42 sem juros
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 24px;">
+                        <button class="btn btn-primary btn-full btn-large" onclick="addBuildToCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            Adicionar ao Carrinho
+                        </button>
+                        <button class="btn btn-outline btn-full" style="margin-top: 12px;" onclick="saveBuild()">
+                            <i class="fas fa-save"></i>
+                            Salvar Configuração
+                        </button>
+                    </div>
+
+                    <div style="margin-top: 24px; text-align: center;">
+                        <p style="color: var(--gray-400); font-size: 12px; margin-bottom: 12px;">Garantias incluídas:</p>
+                        <div style="display: flex; justify-content: space-around; font-size: 12px;">
+                            <div style="color: var(--green-500);">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>2 anos</div>
+                            </div>
+                            <div style="color: var(--blue-500);">
+                                <i class="fas fa-tools"></i>
+                                <div>Suporte</div>
+                            </div>
+                            <div style="color: var(--orange-500);">
+                                <i class="fas fa-truck"></i>
+                                <div>Frete Grátis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/view.js"></script>
+    <script>
+
+        let assemblyPrice = 299;
+        let currentUsage = 'gaming';
+
+        function selectUsage(usage) {
+            // Remove active class from all usage cards
+            document.querySelectorAll('.usage-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Add active class to selected card
+            document.querySelector(`[data-usage="${usage}"]`).classList.add('active');
+            
+            currentUsage = usage;
+            
+            // Update recommendations based on usage
+            updateRecommendations(usage);
+        }
+
+        function updateRecommendations(usage) {
+            // This would update component recommendations based on usage
+            console.log(`Updated recommendations for: ${usage}`);
+        }
+
+        function selectComponent(type, element) {
+            // Remove active class from all options in this component section
+            const section = element.closest('.component-section');
+            section.querySelectorAll('.component-option').forEach(option => {
+                option.classList.remove('active');
+                option.querySelector('.option-select i').className = 'fas fa-plus';
+            });
+            
+            // Add active class to selected option
+            element.classList.add('active');
+            element.querySelector('.option-select i').className = 'fas fa-check';
+            
+            // Update selected component
+            const name = element.querySelector('h5').textContent;
+            const price = parseInt(element.dataset.price);
+            
+            selectedComponents[type] = { name, price };
+            
+            // Update summary
+            updateBuildSummary();
+        }
+
+        function updateBuildSummary() {
+            let subtotal = 0;
+            
+            // Calculate components total
+            Object.values(selectedComponents).forEach(component => {
+                subtotal += component.price;
+            });
+            
+            // Add assembly service if checked
+            const assemblyService = document.getElementById('assemblyService');
+            if (assemblyService && assemblyService.checked) {
+                subtotal += assemblyPrice;
+            }
+            
+            const discount = 0; // Calculate discount if applicable
+            const total = subtotal - discount;
+            
+            // Update display
+            document.getElementById('subtotal').textContent = `R$ ${subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+            document.getElementById('discount').textContent = discount > 0 ? `-R$ ${discount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}` : '-R$ 0,00';
+            document.getElementById('total').textContent = `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+        }
+
+        function addBuildToCart() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adicionando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Adicionado ao Carrinho!';
+                btn.style.background = '#10b981';
+                
+                // Update cart count
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    cartCount.textContent = parseInt(cartCount.textContent) + 1;
+                    cartCount.style.display = 'block';
+                }
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 2000);
+            }, 1500);
+        }
+
+        function saveBuild() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Salvando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Configuração Salva!';
+                btn.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 2000);
+            }, 1000);
+        }
+
+        // Assembly service toggle
+        document.getElementById('assemblyService').addEventListener('change', function() {
+            updateBuildSummary();
+        });
+
+        // Initialize
+        updateBuildSummary();
+
+        async function savePcConfigToFirebase(config) {
+  if (!auth.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await updateDoc(doc(db, "users", uid), { pcConfig: config });
+}
+
+async function loadPcConfigFromFirebase() {
+  if (!auth.currentUser) return;
+  const uid = auth.currentUser.uid;
+  const docSnap = await getDoc(doc(db, "users", uid));
+  if (docSnap.exists()) {
+    const config = docSnap.data().pcConfig || {};
+    aplicarConfiguracaoNaTela(config);
+  }
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    loadCartFromFirebase();
+    loadPcConfigFromFirebase();
+  }
+});
+
+
+    </script>
+
+    <style>
+        /* Usage Cards */
+        .usage-card {
+            background: var(--gray-800);
+            border: 2px solid var(--gray-700);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .usage-card:hover {
+            border-color: var(--orange-500);
+            transform: translateY(-4px);
+        }
+
+        .usage-card.active {
+            border-color: var(--orange-500);
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .usage-card i {
+            font-size: 32px;
+            color: var(--orange-500);
+            margin-bottom: 12px;
+        }
+
+        .usage-card h5 {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .usage-card p {
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        /* Component Sections */
+        .component-section {
+            margin-bottom: 32px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .component-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--gray-800);
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .component-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--orange-500);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .component-info {
+            flex: 1;
+        }
+
+        .component-info h4 {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .component-info p {
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.required {
+            background: var(--red-500);
+            color: var(--white);
+        }
+
+        .status-badge.optional {
+            background: var(--gray-600);
+            color: var(--white);
+        }
+
+        /* Component Options */
+        .component-options {
+            padding: 20px;
+        }
+
+        .component-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--gray-800);
+            border: 2px solid var(--gray-700);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .component-option:hover {
+            border-color: var(--orange-500);
+        }
+
+        .component-option.active {
+            border-color: var(--orange-500);
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .option-image {
+            width: 60px;
+            height: 60px;
+            background: var(--gray-700);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .option-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .option-details {
+            flex: 1;
+        }
+
+        .option-details h5 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .option-details p {
+            color: var(--gray-400);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .option-price {
+            color: var(--orange-500);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .option-select {
+            width: 32px;
+            height: 32px;
+            background: var(--gray-700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .component-option.active .option-select {
+            background: var(--orange-500);
+        }
+
+        /* Checkout Progress */
+        .checkout-progress {
+            margin-bottom: 48px;
+        }
+
+        .progress-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--gray-700);
+            border-radius: 2px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange-500) 0%, var(--red-500) 100%);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-700);
+            color: var(--gray-400);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .step-item.active .step-circle {
+            background: var(--orange-500);
+            color: var(--white);
+        }
+
+        .step-label {
+            color: var(--gray-400);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .step-item.active .step-label {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .products .container > div {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+
+            .usage-selection > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            .component-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .component-option {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .option-details {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .progress-steps {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .step-item {
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .component-section {
+                margin-bottom: 24px;
+            }
+
+            .component-header {
+                padding: 16px;
+            }
+
+            .component-options {
+                padding: 16px;
+            }
+        }
+    </style>
+</body>
+</html>

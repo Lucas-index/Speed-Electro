@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="/index.html" class="nav-link">Início</a>
+                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="/index.html#produtos" class="nav-link">Produto</a>
+                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cartCount">0</span>
+</a>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 120px 0 60px;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Área do Cliente</span>
+                </div>
+                <h2 class="section-title">
+                    Meu <span class="text-gradient">Perfil</span>
+                </h2>
+                <p class="section-description">
+                    Gerencie suas informações pessoais e configurações
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" style="padding: 40px 0 80px;">
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="service-card" style="padding: 24px;">
+                        <!-- User Info -->
+                        <div class="profile-user-info">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 id="nomeUsuario">Carregando...</h3>
+                            <p id="emailUsuario">Carregando...</p>
+                            <div class="profile-status">
+                                <i class="fas fa-circle"></i>
+                                <span>Online</span>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Menu -->
+                        <nav class="profile-nav">
+                            <a href="#" class="profile-nav-item active" data-section="dados-pessoais">
+                                <i class="fas fa-user"></i>
+                                <span>Dados Pessoais</span>
+                            </a>
+                            <a href="#" class="profile-nav-item" data-section="seguranca">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Segurança</span>
+                            </a>
+                            <a href="#" class="profile-nav-item" data-section="pedidos">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Meus Pedidos</span>
+                            </a>
+                            <a href="#" class="profile-nav-item" data-section="enderecos">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Endereços</span>
+                            </a>
+                            <a href="#" class="profile-nav-item" data-section="favoritos">
+                                <i class="fas fa-heart"></i>
+                                <span>Favoritos</span>
+                            </a>
+                            <a href="#" class="profile-nav-item" data-section="configuracoes">
+                                <i class="fas fa-cog"></i>
+                                <span>Configurações</span>
+                            </a>
+                        </nav>
+
+                        <!-- Logout Button -->
+                        <button class="btn btn-danger" id="logoutBtn" style="width: 100%; margin-top: 24px;">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sair da Conta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Content -->
+                <div class="profile-content">
+                    <!-- Dados Pessoais -->
+                    <div class="profile-section active" id="dados-pessoais">
+                        <div class="service-card" style="padding: 32px;">
+                            <div class="section-header-inline">
+                                <h3>Dados Pessoais</h3>
+                                <button class="btn btn-outline" id="editPersonalBtn">
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                </button>
+                            </div>
+
+                            <form id="personalForm" class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">Nome</label>
+                                        <input type="text" id="firstName" name="firstName" class="form-input" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Sobrenome</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-input" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" id="email" name="email" class="form-input" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Telefone</label>
+                                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(11) 99999-9999" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cpf">CPF</label>
+                                        <input type="text" id="cpf" name="cpf" class="form-input" placeholder="000.000.000-00" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birthDate">Data de Nascimento</label>
+                                        <input type="date" id="birthDate" name="birthDate" class="form-input" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions" id="personalActions" style="display: none;">
+                                    <button type="button" class="btn btn-outline" id="cancelPersonalBtn">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Segurança -->
+                    <div class="profile-section" id="seguranca">
+                        <div class="service-card" style="padding: 32px;">
+                            <h3 style="margin-bottom: 24px;">Segurança</h3>
+
+                            <div class="security-options">
+                                <div class="security-item">
+                                    <div class="security-icon">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <div class="security-info">
+                                        <h4>Alterar Senha</h4>
+                                        <p>Mantenha sua conta segura alterando sua senha regularmente</p>
+                                    </div>
+                                    <button class="btn btn-outline" onclick="openPasswordModal()">
+                                        Alterar
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="security-info">
+                                        <h4>Autenticação em Duas Etapas</h4>
+                                        <p>Adicione uma camada extra de segurança à sua conta</p>
+                                    </div>
+                                    <button class="btn btn-outline">
+                                        Configurar
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-icon">
+                                        <i class="fas fa-history"></i>
+                                    </div>
+                                    <div class="security-info">
+                                        <h4>Histórico de Login</h4>
+                                        <p>Veja onde e quando sua conta foi acessada</p>
+                                    </div>
+                                    <button class="btn btn-outline">
+                                        Ver Histórico
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meus Pedidos -->
+                    <div class="profile-section" id="pedidos">
+                        <div class="service-card" style="padding: 32px;">
+                            <h3 style="margin-bottom: 24px;">Meus Pedidos</h3>
+                            
+                            <div class="empty-state">
+                                <div class="empty-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <h4>Nenhum pedido encontrado</h4>
+                                <p>Você ainda não fez nenhuma compra conosco</p>
+                                <a href="produtos.html" class="btn btn-primary">Começar a Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Endereços -->
+                    <div class="profile-section" id="enderecos">
+                        <div class="service-card" style="padding: 32px;">
+                            <div class="section-header-inline">
+                                <h3>Meus Endereços</h3>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-plus"></i>
+                                    Adicionar Endereço
+                                </button>
+                            </div>
+
+                            <div class="empty-state">
+                                <div class="empty-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h4>Nenhum endereço cadastrado</h4>
+                                <p>Adicione um endereço para facilitar suas compras</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favoritos -->
+                    <div class="profile-section" id="favoritos">
+                        <div class="service-card" style="padding: 32px;">
+                            <h3 style="margin-bottom: 24px;">Meus Favoritos</h3>
+                            
+                            <div class="empty-state">
+                                <div class="empty-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h4>Nenhum favorito ainda</h4>
+                                <p>Salve produtos que você gostou para encontrá-los facilmente</p>
+                                <a href="produtos.html" class="btn btn-primary">Explorar Produtos</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Configurações -->
+                    <div class="profile-section" id="configuracoes">
+                        <div class="service-card" style="padding: 32px;">
+                            <h3 style="margin-bottom: 24px;">Configurações</h3>
+
+                            <div class="settings-list">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Notificações por E-mail</h4>
+                                        <p>Receba ofertas e novidades por e-mail</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Notificações Push</h4>
+                                        <p>Receba notificações no navegador</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Newsletter</h4>
+                                        <p>Receba nossa newsletter semanal</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Alterar Senha -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Alterar Senha</h3>
+                <button class="modal-close" onclick="closePasswordModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Senha Atual</label>
+                        <input type="password" id="currentPassword" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Nova Senha</label>
+                        <input type="password" id="newPassword" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Nova Senha</label>
+                        <input type="password" id="confirmPassword" class="form-input" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="closePasswordModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script type="module">
+        // Firebase Configuration
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
+            authDomain: "SeedElectro.firebaseapp.com",
+            projectId: "seedelectro",
+            storageBucket: "seedelectro.appspot.com",
+            messagingSenderId: "275204209258",
+            appId: "1:275204209258:web:aec29e2797350ac136e813"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // DOM Elements
+        const nomeSpan = document.getElementById("nomeUsuario");
+        const emailSpan = document.getElementById("emailUsuario");
+        const emailInput = document.getElementById("email");
+        const firstNameInput = document.getElementById("firstName");
+        const lastNameInput = document.getElementById("lastName");
+
+        // Check authentication
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const displayName = user.displayName || "Usuário";
+                const nameParts = displayName.split(" ");
+                
+                nomeSpan.textContent = displayName;
+                emailSpan.textContent = user.email;
+                emailInput.value = user.email;
+                firstNameInput.value = nameParts[0] || "";
+                lastNameInput.value = nameParts.slice(1).join(" ") || "";
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+
+        // Logout
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            if (confirm("Tem certeza que deseja sair?")) {
+                signOut(auth).then(() => {
+                    window.location.href = "index.html";
+                }).catch((error) => {
+                    console.error("Erro ao fazer logout:", error);
+                    alert("Erro ao sair da conta. Tente novamente.");
+                });
+            }
+        });
+
+        // Profile navigation
+        document.querySelectorAll('.profile-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all nav items
+                document.querySelectorAll('.profile-nav-item').forEach(nav => nav.classList.remove('active'));
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Hide all content sections
+                document.querySelectorAll('.profile-section').forEach(section => section.classList.remove('active'));
+                // Show selected section
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        // Edit personal data
+        document.getElementById('editPersonalBtn').addEventListener('click', function() {
+            const inputs = document.querySelectorAll('#personalForm input:not([type="email"])');
+            const actions = document.getElementById('personalActions');
+            
+            inputs.forEach(input => input.removeAttribute('readonly'));
+            actions.style.display = 'flex';
+            this.style.display = 'none';
+        });
+
+        // Cancel edit personal data
+        document.getElementById('cancelPersonalBtn').addEventListener('click', function() {
+            const inputs = document.querySelectorAll('#personalForm input:not([type="email"])');
+            const actions = document.getElementById('personalActions');
+            const editBtn = document.getElementById('editPersonalBtn');
+            
+            inputs.forEach(input => input.setAttribute('readonly', true));
+            actions.style.display = 'none';
+            editBtn.style.display = 'block';
+        });
+
+        // Personal form submit
+        document.getElementById('personalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const inputs = document.querySelectorAll('#personalForm input:not([type="email"])');
+            const actions = document.getElementById('personalActions');
+            const editBtn = document.getElementById('editPersonalBtn');
+            
+            // Simulate save
+            setTimeout(() => {
+                inputs.forEach(input => input.setAttribute('readonly', true));
+                actions.style.display = 'none';
+                editBtn.style.display = 'block';
+                
+                alert('Dados atualizados com sucesso!');
+            }, 1000);
+        });
+
+        // Password modal functions
+        window.openPasswordModal = function() {
+            document.getElementById('passwordModal').style.display = 'flex';
+        };
+
+        window.closePasswordModal = function() {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('passwordForm').reset();
+        };
+
+        // Password form submit
+        document.getElementById('passwordForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                alert('A nova senha deve ter pelo menos 6 caracteres!');
+                return;
+            }
+
+            try {
+                const user = auth.currentUser;
+                const credential = EmailAuthProvider.credential(user.email, currentPassword);
+                
+                await reauthenticateWithCredential(user, credential);
+                await updatePassword(user, newPassword);
+                
+                alert('Senha alterada com sucesso!');
+                closePasswordModal();
+            } catch (error) {
+                console.error('Erro ao alterar senha:', error);
+                alert('Erro ao alterar senha. Verifique sua senha atual.');
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('passwordModal');
+            if (e.target === modal) {
+                closePasswordModal();
+            }
+        });
+
+        // Phone and CPF masks
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/(\d{2})(\d)/, '($1) $2');
+            value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            e.target.value = value;
+        });
+
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            e.target.value = value;
+        });
+
+        function toggleEditMode(isEditing) {
+            const formInputs = document.querySelectorAll("#personalForm .form-input");
+            const personalActions = document.getElementById("personalActions");
+            const editPersonalBtn = document.getElementById("editPersonalBtn");
+
+            formInputs.forEach(input => {
+                input.readOnly = !isEditing;
+            });
+
+            personalActions.style.display = isEditing ? "flex" : "none";
+            editPersonalBtn.style.display = isEditing ? "none" : "block";
+        }
+
+        // Lógica para carregar os dados do usuário e atualizar os campos
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // Carregar os dados de autenticação (displayName e email)
+                document.getElementById("firstName").value = user.displayName.split(" ")[0] || "";
+                document.getElementById("lastName").value = user.displayName.split(" ").slice(1).join(" ") || "";
+                document.getElementById("email").value = user.email;
+
+                // Carregar os dados adicionais do Firestore
+                db.collection("users").doc(user.uid).get().then(doc => {
+                    if (doc.exists) {
+                        const data = doc.data();
+                        document.getElementById("phone").value = data.phone || "";
+                        document.getElementById("cpf").value = data.cpf || "";
+                        document.getElementById("birthDate").value = data.birthDate || "";
+                    } else {
+                        console.log("Nenhum dado adicional de perfil encontrado!");
+                    }
+                }).catch(error => {
+                    console.error("Erro ao buscar dados do Firestore:", error);
+                });
+            } else {
+                // Se o usuário não estiver logado, redireciona para a página de cadastro/login
+                window.location.href = "/Paginas/Cadastro.html";
+            }
+        });
+
+        // Evento de envio do formulário (botão "Salvar Alterações")
+        document.getElementById("personalForm").addEventListener("submit", (e) => {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            const user = auth.currentUser;
+            if (user) {
+                // Captura os valores atualizados do formulário
+                const firstName = document.getElementById("firstName").value;
+                const lastName = document.getElementById("lastName").value;
+                const phone = document.getElementById("phone").value;
+                const cpf = document.getElementById("cpf").value;
+                const birthDate = document.getElementById("birthDate").value;
+
+                // Atualiza o nome de exibição no Firebase Auth
+                user.updateProfile({
+                    displayName: `${firstName} ${lastName}`
+                }).then(() => {
+                    console.log("Nome de exibição do Firebase Auth atualizado!");
+                }).catch(error => {
+                    console.error("Erro ao atualizar o displayName:", error);
+                });
+
+                // Cria um objeto com os dados adicionais para o Firestore
+                const profileData = {
+                    phone: phone,
+                    cpf: cpf,
+                    birthDate: birthDate
+                };
+
+                // Atualiza o documento do usuário no Firestore
+                db.collection("users").doc(user.uid).set(profileData, { merge: true })
+                    .then(() => {
+                        alert("Perfil atualizado com sucesso!");
+                        toggleEditMode(false); // Volta para o modo de visualização
+                    })
+                    .catch((error) => {
+                        console.error("Erro ao salvar dados no Firestore:", error);
+                        alert("Erro ao salvar as alterações. Tente novamente.");
+                    });
+            } else {
+                alert("Você precisa estar logado para salvar as alterações.");
+                window.location.href = "/Paginas/Cadastro.html";
+            }
+        });
+
+        // Evento de clique no botão "Editar Perfil"
+        document.getElementById("editPersonalBtn").addEventListener("click", () => {
+            toggleEditMode(true);
+        });
+
+        // Evento de clique no botão "Cancelar"
+        document.getElementById("cancelPersonalBtn").addEventListener("click", () => {
+            // Recarrega os dados originais e volta para o modo de visualização
+            window.location.reload(); 
+        });
+
+        // Inicializa a página no modo de visualização
+        toggleEditMode(false);
+    </script>
+
+    <style>
+
+        /* Profile specific styles using existing CSS variables */
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .profile-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-user-info {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--orange-500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .profile-user-info h3 {
+            color: var(--white);
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        .profile-user-info p {
+            color: var(--gray-400);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .profile-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--green-500);
+            font-size: 14px;
+        }
+
+        .profile-status i {
+            font-size: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        .profile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .profile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--gray-300);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .profile-nav-item:hover,
+        .profile-nav-item.active {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        .profile-nav-item.active {
+            background: var(--orange-500);
+        }
+
+        .profile-nav-item i {
+            width: 16px;
+            text-align: center;
+        }
+
+        .profile-section {
+            display: none;
+        }
+
+        .profile-section.active {
+            display: block;
+        }
+
+        .section-header-inline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-header-inline h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .profile-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-form label {
+            color: var(--gray-300);
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .profile-form .form-input {
+            padding: 12px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-600);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .profile-form .form-input:focus {
+            outline: none;
+            border-color: var(--orange-500);
+        }
+
+        .profile-form .form-input[readonly] {
+            background: var(--gray-700);
+            cursor: not-allowed;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
+
+        .security-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 12px;
+        }
+
+        .security-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--orange-500);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .security-info {
+            flex: 1;
+        }
+
+        .security-info h4 {
+            color: var(--white);
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        .security-info p {
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gray-700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--gray-400);
+        }
+
+        .empty-state h4 {
+            color: var(--white);
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .empty-state p {
+            color: var(--gray-400);
+            margin-bottom: 24px;
+        }
+
+        .settings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 12px;
+        }
+
+        .setting-info h4 {
+            color: var(--white);
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        .setting-info p {
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        /* Switch Toggle */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray-600);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--white);
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--orange-500);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .modal-header h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .modal-body .form-group {
+            margin-bottom: 20px;
+        }
+
+        .modal-body label {
+            color: var(--gray-300);
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .modal-body .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-600);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .modal-body .form-input:focus {
+            outline: none;
+            border-color: var(--orange-500);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .profile-sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .profile-content {
+                order: 1;
+            }
+
+            .profile-form .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .security-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .setting-item {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header-inline {
+                flex-direction: column;
+                gap: 16px;
+                align-items: stretch;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+            }
+        }
+    </style>
+</body>
+</html>

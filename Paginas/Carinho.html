@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="/index.html" class="nav-link">Início</a>
+                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="/index.html#produtos" class="nav-link">Produto</a>
+                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="/Paginas/Cadastro.html" class="btn btn-outline">Login</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="products" style="padding-top: 120px;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start;">
+                    </div>
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrinho de Compras</span>
+                </div>
+                <h2 class="section-title">
+                    Seus <span class="text-gradient">Produtos</span>
+                </h2>
+                <p class="section-description">
+                    Revise seus itens antes de finalizar a compra
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start;">
+                <div class="service-card" style="padding: 32px;">
+                    <div id="cartItems">
+                        </div>
+
+                    <div style="margin-top: 24px; display: flex; gap: 16px;">
+                        <a href="/Paginas/pagedeprodutos.html" class="btn btn-outline" style="flex: 1;">
+                            <i class="fas fa-arrow-left"></i>
+                            Continuar Comprando
+                        </a>
+                        <button onclick="clearCart()" class="btn btn-outline-red">
+                            <i class="fas fa-trash"></i>
+                            Limpar Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <div class="service-card" style="padding: 32px; position: sticky; top: 100px;">
+                    <h3 style="color: var(--white); margin-bottom: 24px;">Resumo do Pedido</h3>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--gray-400);">Subtotal (<span id="itemCount">0</span> itens):</span>
+                            <span id="subtotalValue" style="color: var(--white);">R$ 0,00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--gray-400);">Frete:</span>
+                            <span id="freightValue" style="color: var(--green-500);">Grátis</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--gray-400);">Desconto:</span>
+                            <span id="discountValue" style="color: var(--red-500);">-R$ 0,00</span>
+                        </div>
+                        <hr style="border: none; border-top: 1px solid var(--gray-800); margin: 16px 0;">
+                        <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 600;">
+                            <span style="color: var(--white);">Total:</span>
+                            <span id="totalValue" style="color: var(--orange-500);">R$ 0,00</span>
+                        </div>
+                        <p id="installments" style="color: var(--gray-400); font-size: 12px; text-align: center; margin-top: 8px;">
+                            </p>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label for="couponInput" style="color: var(--gray-300); font-size: 14px; margin-bottom: 8px; display: block;">Cupom de Desconto</label>
+                        <div style="display: flex; gap: 8px;">
+                            <input type="text" id="couponInput" placeholder="Digite o cupom" style="flex: 1; padding: 12px; background: var(--gray-800); border: 1px solid var(--gray-700); border-radius: 6px; color: var(--white);">
+                            <button class="btn btn-outline" onclick="applyCoupon()">Aplicar</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full btn-large" onclick="checkout()">
+                        <i class="fas fa-credit-card"></i>
+                        Finalizar Compra
+                    </button>
+
+                    <div style="margin-top: 16px; text-align: center;">
+                        <p style="color: var(--gray-400); font-size: 12px; margin-bottom: 8px;">Pagamento seguro com:</p>
+                        <div style="display: flex; justify-content: center; gap: 8px;">
+                            <i class="fab fa-cc-visa" style="color: var(--gray-400); font-size: 24px;"></i>
+                            <i class="fab fa-cc-mastercard" style="color: var(--gray-400); font-size: 24px;"></i>
+                            <i class="fab fa-cc-paypal" style="color: var(--gray-400); font-size: 24px;"></i>
+                            <i class="fas fa-barcode" style="color: var(--gray-400); font-size: 24px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let cart = [];
+
+        // Função para obter o carrinho do localStorage ou iniciar um novo
+        function getCart() {
+            const cartData = localStorage.getItem('cart');
+            return cartData ? JSON.parse(cartData) : [];
+        }
+
+        // Função para salvar o carrinho no localStorage
+        function saveCart(updatedCart) {
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+        }
+
+        // Função para formatar o valor monetário
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(value);
+        }
+
+        // Função para renderizar os itens do carrinho no HTML
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = ''; // Limpa os itens existentes
+            
+            cart = getCart();
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div style="text-align: center; color: var(--gray-400); padding: 48px;">
+                        <i class="fas fa-box-open" style="font-size: 48px; margin-bottom: 16px;"></i>
+                        <p>Seu carrinho está vazio.</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.style.cssText = 'display: flex; align-items: center; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--gray-800);';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
+                        <div style="flex: 1;">
+                            <h4 style="color: var(--white); font-size: 18px; margin-bottom: 8px;">${item.name}</h4>
+                            <p style="color: var(--gray-400); font-size: 14px; margin-bottom: 8px;">${item.description}</p>
+                            <div style="color: var(--orange-500); font-weight: 600; font-size: 16px;">${formatCurrency(item.price)}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-800); border-radius: 8px; padding: 8px;">
+                                <button onclick="updateQuantity(${item.id}, -1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">-</button>
+                                <span style="color: var(--white); min-width: 20px; text-align: center;">${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">+</button>
+                            </div>
+                            <button onclick="removeItem(${item.id})" style="background: none; border: none; color: var(--red-500); cursor: pointer; padding: 8px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItemElement);
+                });
+            }
+        }
+
+        // Função para recalcular e renderizar o resumo do pedido
+        function renderOrderSummary() {
+            let subtotal = 0;
+            let itemCount = 0;
+            const discount = 197; // Valor de desconto fixo para o exemplo
+            const maxInstallments = 12;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                itemCount += item.quantity;
+            });
+
+            const total = subtotal > discount ? subtotal - discount : 0;
+            const installmentValue = total / maxInstallments;
+            
+            document.getElementById('itemCount').textContent = itemCount;
+            document.getElementById('subtotalValue').textContent = formatCurrency(subtotal);
+            document.getElementById('discountValue').textContent = `- ${formatCurrency(discount)}`;
+            document.getElementById('totalValue').textContent = formatCurrency(total);
+            document.getElementById('installments').textContent = `${maxInstallments}x de ${formatCurrency(installmentValue)} sem juros`;
+        }
+
+        // Função para atualizar a quantidade de um item
+        function updateQuantity(itemId, change) {
+            const item = cart.find(i => i.id === itemId);
+            if (item) {
+                const newQuantity = item.quantity + change;
+                if (newQuantity > 0) {
+                    item.quantity = newQuantity;
+                } else {
+                    // Se a quantidade for zero ou negativa, remove o item
+                    removeItem(itemId);
+                    return; // Sai da função para evitar recálculo duplo
+                }
+                saveCart(cart);
+                renderCartItems();
+                renderOrderSummary();
+            }
+        }
+
+        // Função para remover um item do carrinho
+        function removeItem(itemId) {
+            if (confirm('Tem certeza que deseja remover este item?')) {
+                cart = cart.filter(item => item.id !== itemId);
+                saveCart(cart);
+                renderCartItems();
+                renderOrderSummary();
+            }
+        }
+
+        // Função para limpar todo o carrinho
+        function clearCart() {
+            if (confirm('Tem certeza que deseja limpar todo o carrinho?')) {
+                cart = [];
+                saveCart(cart);
+                renderCartItems();
+                renderOrderSummary();
+            }
+        }
+
+        // Função para aplicar um cupom (exemplo)
+        function applyCoupon() {
+            const couponCode = document.getElementById('couponInput').value;
+            alert(`Aplicando cupom: ${couponCode}`);
+            // Aqui você faria a lógica real de validação e aplicação do desconto
+        }
+
+        // Função para finalizar a compra
+        function checkout() {
+            alert('Redirecionando para o checkout...');
+            // Lógica para enviar os dados do carrinho e redirecionar para a página de pagamento
+            setTimeout(() => {
+                window.location.href = "checkout.html";
+            }, 500);
+        }
+
+        // Inicializa o carrinho quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            cart = getCart(); // Carrega o carrinho do localStorage
+            renderCartItems();
+            renderOrderSummary();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="/index.html" class="nav-link">Início</a>
+                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="/index.html#produtos" class="nav-link">Produto</a>
+                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="/Paginas/Cadastro.html" class="btn btn-outline">Cadastrar</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; max-width: 500px; margin: 0 auto;">
+                <div class="contact-form-container" style="margin-top: 100px;">
+                    <div class="form-header">
+                        <div class="section-badge" style="margin-bottom: 16px;">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Acesso à Conta</span>
+                        </div>
+                        <h3>Faça seu Login</h3>
+                        <p>Entre na sua conta para acessar ofertas exclusivas</p>
+                    </div>
+
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" required placeholder="Sua senha">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="remember">
+                                    <span class="checkmark"></span>
+                                    <span>Lembrar de mim</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large" id="loginBtn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Entrar
+                        </button>
+
+                        <div style="text-align: center; margin: 24px 0;">
+                            <a href="/Paginas/Cadastro.html" class="terms-link">Esqueceu sua senha?</a>
+                        </div>
+
+                        <div style="text-align: center; padding: 20px 0; border-top: 1px solid var(--gray-800);">
+                            <p style="color: var(--gray-400); margin-bottom: 16px;">Não tem uma conta?</p>
+                            <a href="/Paginas/Cadastro.html" class="btn btn-outline btn-full">
+                                <i class="fas fa-user-plus"></i>
+                                Criar Conta
+                            </a>
+                        </div>
+                    </form>
+
+                    <div style="margin-top: 32px; text-align: center;">
+                        <p style="color: var(--gray-400); margin-bottom: 16px;">Ou entre com:</p>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn btn-outline" style="flex: 1;">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1;">
+                                <i class="fab fa-facebook"></i>
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { 
+    getAuth, 
+    signInWithEmailAndPassword, 
+    onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { 
+    getFirestore, 
+    doc, 
+    getDoc 
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+// 🔹 CONFIG FIREBASE (substitua pelos seus dados)
+const firebaseConfig = {
+   apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
+  authDomain: "seedelectro.firebaseapp.com",
+  projectId: "seedelectro",
+  storageBucket: "seedelectro.firebasestorage.app",
+  messagingSenderId: "275204209258",
+  appId: "1:275204209258:web:aec29e2797350ac136e813",
+  measurementId: "G-RQY204S4E0"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// 🔹 LOGIN
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("Usuário logado:", userCredential.user.uid);
+        await loadCartFromFirebase(userCredential.user.uid);
+        window.location.href = "/index.html";
+    } catch (error) {
+        alert("Erro no login: " + error.message);
+    }
+});
+
+// 🔹 CARREGAR CARRINHO
+async function loadCartFromFirebase(uid) {
+    const docSnap = await getDoc(doc(db, "users", uid));
+    if (docSnap.exists()) {
+        localStorage.setItem("pcmaster_cart", JSON.stringify(docSnap.data().cart || []));
+    }
+}
+
+// 🔹 TROCAR BOTÃO LOGIN → PERFIL
+onAuthStateChanged(auth, (user) => {
+    const loginBtn = document.querySelector('.header-actions a.btn');
+    if (user) {
+        loginBtn.textContent = "Perfil";
+        loginBtn.href = "/Paginas/perfil.html";
+    } else {
+        loginBtn.textContent = "Login";
+        loginBtn.href = "/Paginas/Login.html";
+    }
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negociação - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="venda.html" class="nav-link">Produtos</a>
+                    <a href="agendar-montagem.html" class="nav-link">Montagem</a>
+                    <a href="explorar.html" class="nav-link">Explorar</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="carrinho.html" class="icon-btn cart-btn" title="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 120px 0 80px;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-handshake"></i>
+                    <span>Negociação Personalizada</span>
+                </div>
+                <h2 class="section-title">
+                    Negocie <span class="text-gradient">Condições</span> Especiais
+                </h2>
+                <p class="section-description">
+                    Obtenha os melhores preços e condições especiais para suas compras
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" style="padding: 60px 0;">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Form Section -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Solicitar Negociação</h3>
+                        <p>Preencha os dados para iniciar uma negociação personalizada</p>
+                    </div>
+
+                    <form id="negotiationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Empresa (opcional)</label>
+                                <input type="text" id="company" name="company" placeholder="Nome da empresa">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="negotiationType">Tipo de Negociação</label>
+                            <select id="negotiationType" name="negotiationType" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="desconto-quantidade">Desconto por Quantidade</option>
+                                <option value="parcelamento">Condições de Parcelamento</option>
+                                <option value="corporativo">Compra Corporativa</option>
+                                <option value="troca-equipamento">Troca + Dinheiro</option>
+                                <option value="combo-produtos">Combo de Produtos</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="products">Produtos de Interesse</label>
+                            <textarea id="products" name="products" rows="4" required placeholder="Liste os produtos que deseja negociar (modelo, quantidade, especificações...)"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantidade Total</label>
+                                <select id="quantity" name="quantity">
+                                    <option value="">Selecione a quantidade</option>
+                                    <option value="1-5">1 a 5 unidades</option>
+                                    <option value="6-10">6 a 10 unidades</option>
+                                    <option value="11-20">11 a 20 unidades</option>
+                                    <option value="21-50">21 a 50 unidades</option>
+                                    <option value="50+">Mais de 50 unidades</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Orçamento Disponível</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Selecione a faixa</option>
+                                    <option value="ate-5000">Até R$ 5.000</option>
+                                    <option value="5000-15000">R$ 5.000 - R$ 15.000</option>
+                                    <option value="15000-30000">R$ 15.000 - R$ 30.000</option>
+                                    <option value="30000-50000">R$ 30.000 - R$ 50.000</option>
+                                    <option value="acima-50000">Acima de R$ 50.000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deadline">Prazo para Compra</label>
+                            <select id="deadline" name="deadline">
+                                <option value="">Selecione o prazo</option>
+                                <option value="imediato">Imediato (até 7 dias)</option>
+                                <option value="15-dias">Até 15 dias</option>
+                                <option value="30-dias">Até 30 dias</option>
+                                <option value="60-dias">Até 60 dias</option>
+                                <option value="flexivel">Flexível</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentPreference">Preferência de Pagamento</label>
+                            <select id="paymentPreference" name="paymentPreference">
+                                <option value="">Selecione a preferência</option>
+                                <option value="avista">À vista (PIX/Dinheiro)</option>
+                                <option value="cartao">Cartão de Crédito</option>
+                                <option value="parcelado">Parcelado sem juros</option>
+                                <option value="boleto">Boleto Bancário</option>
+                                <option value="financiamento">Financiamento</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentEquipment">Equipamentos para Troca (opcional)</label>
+                            <textarea id="currentEquipment" name="currentEquipment" rows="3" placeholder="Descreva os equipamentos que possui para troca (modelo, estado, ano...)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requirements">Requisitos Especiais</label>
+                            <textarea id="requirements" name="requirements" rows="4" placeholder="Descreva suas necessidades específicas, condições desejadas ou qualquer informação relevante para a negociação..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    <span>Aceito os <a href="#" class="terms-link">termos de negociação</a> e <a href="#" class="terms-link">política de privacidade</a></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large" id="negotiateBtn">
+                            <i class="fas fa-handshake"></i>
+                            Iniciar Negociação
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Benefits Section -->
+                <div>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Descontos Progressivos</h4>
+                                <p>Até 25% de desconto</p>
+                                <span>Quanto maior a quantidade, maior o desconto</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Condições Flexíveis</h4>
+                                <p>Parcelamento personalizado</p>
+                                <span>Até 24x sem juros para empresas</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Frete Grátis</h4>
+                                <p>Entrega sem custo</p>
+                                <span>Para compras acima de R$ 2.000</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Suporte Dedicado</h4>
+                                <p>Atendimento VIP</p>
+                                <span>Consultor exclusivo para sua conta</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Discount Table -->
+                    <div class="service-card" style="margin-top: 32px;">
+                        <h4 style="color: var(--white); margin-bottom: 20px;">Tabela de Descontos</h4>
+                        
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; color: var(--gray-300); font-size: 14px;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid var(--gray-800);">
+                                        <th style="padding: 12px; text-align: left; color: var(--orange-500);">Quantidade</th>
+                                        <th style="padding: 12px; text-align: left; color: var(--orange-500);">Desconto</th>
+                                        <th style="padding: 12px; text-align: left; color: var(--orange-500);">Benefícios</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--gray-800);">
+                                        <td style="padding: 12px;">5-10 unidades</td>
+                                        <td style="padding: 12px; color: var(--green-500);">5%</td>
+                                        <td style="padding: 12px;">Frete grátis</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--gray-800);">
+                                        <td style="padding: 12px;">11-20 unidades</td>
+                                        <td style="padding: 12px; color: var(--green-500);">10%</td>
+                                        <td style="padding: 12px;">Frete grátis + Garantia estendida</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--gray-800);">
+                                        <td style="padding: 12px;">21-50 unidades</td>
+                                        <td style="padding: 12px; color: var(--green-500);">15%</td>
+                                        <td style="padding: 12px;">Todos os benefícios + Suporte dedicado</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 12px;">50+ unidades</td>
+                                        <td style="padding: 12px; color: var(--green-500);">25%</td>
+                                        <td style="padding: 12px;">Pacote completo + Consultoria gratuita</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="service-card" style="margin-top: 32px; text-align: center;">
+                        <h4 style="color: var(--white); margin-bottom: 16px;">Prefere Falar Diretamente?</h4>
+                        <p style="color: var(--gray-400); margin-bottom: 20px;">Nossa equipe comercial está pronta para atendê-lo</p>
+                        <div style="display: flex; gap: 12px; justify-content: center;">
+                            <a href="tel:+5511999999999" class="btn btn-outline">
+                                <i class="fas fa-phone"></i>
+                                (11) 99999-9999
+                            </a>
+                            <a href="https://wa.me/5511999999999" class="btn btn-outline-red" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Phone mask
+        document.getElementById('phone').addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+            this.value = value;
+        });
+
+        // Form submission
+        document.getElementById('negotiationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('negotiateBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando proposta...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Proposta Enviada!';
+                btn.style.background = '#10b981';
+                
+                alert('Proposta de negociação enviada com sucesso!\nNossa equipe comercial entrará em contato em até 2 horas úteis.');
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
