@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil - SpeedElectro</title>
-    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link rel="stylesheet" href="./Paginas/Estilos/styl.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,23 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <a href="/index.html" class="logo">
+                <a href="./index.html" class="logo">
                     <i class="fas fa-desktop"></i>
                     <span>Speed<span class="logo-accent">Electro</span></span>
                 </a>
 
                 <nav class="nav-desktop">
-                    <a href="/index.html" class="nav-link">Início</a>
-                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
-                    <a href="/index.html#produtos" class="nav-link">Produto</a>
-                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                    <a href="./index.html" class="nav-link">Início</a>
+                    <a href="./index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="./index.html#produtos" class="nav-link">Produto</a>
+                    <a href="./index.html#montagem" class="nav-link">Monte seu PC</a>
                 </nav>
 
                 <div class="header-actions">
                     <button class="icon-btn" id="searchBtn" title="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
-                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+                    <a href="./Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
     <i class="fas fa-shopping-cart"></i>
     <span class="cart-count" id="cartCount">0</span>
 </a>
@@ -351,7 +351,7 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="./main.js"></script>
      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -392,7 +392,7 @@
                 firstNameInput.value = nameParts[0] || "";
                 lastNameInput.value = nameParts.slice(1).join(" ") || "";
             } else {
-                window.location.href = "login.html";
+                window.location.href = "./login.html";
             }
         });
 
@@ -568,7 +568,7 @@
                 });
             } else {
                 // Se o usuário não estiver logado, redireciona para a página de cadastro/login
-                window.location.href = "/Paginas/Cadastro.html";
+                window.location.href = "./Paginas/Cadastro.html";
             }
         });
 
@@ -613,7 +613,7 @@
                     });
             } else {
                 alert("Você precisa estar logado para salvar as alterações.");
-                window.location.href = "/Paginas/Cadastro.html";
+                window.location.href = "./Paginas/Cadastro.html";
             }
         });
 
