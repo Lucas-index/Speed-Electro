@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Negociação - SpeedElectro</title>
-    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link rel="stylesheet" href="./Paginas/Estilos/styl.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,27 +14,27 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
+                <a href="./index.html" class="logo">
                     <i class="fas fa-desktop"></i>
                     <span>Speed<span class="logo-accent">Electro</span></span>
                 </a>
 
                 <nav class="nav-desktop">
-                    <a href="index.html" class="nav-link">Início</a>
-                    <a href="venda.html" class="nav-link">Produtos</a>
-                    <a href="agendar-montagem.html" class="nav-link">Montagem</a>
-                    <a href="explorar.html" class="nav-link">Explorar</a>
+                    <a href="./index.html" class="nav-link">Início</a>
+                    <a href="./venda.html" class="nav-link">Produtos</a>
+                    <a href="./agendar-montagem.html" class="nav-link">Montagem</a>
+                    <a href="./explorar.html" class="nav-link">Explorar</a>
                 </nav>
 
                 <div class="header-actions">
                     <button class="icon-btn" id="searchBtn" title="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
-                    <a href="carrinho.html" class="icon-btn cart-btn" title="Carrinho">
+                    <a href="./carrinho.html" class="icon-btn cart-btn" title="Carrinho">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cartCount">0</span>
                     </a>
-                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="./login.html" class="btn btn-outline">Login</a>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -327,7 +327,7 @@
                 alert('Proposta de negociação enviada com sucesso!\nNossa equipe comercial entrará em contato em até 2 horas úteis.');
                 
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = './index.html';
                 }, 2000);
             }, 2000);
         });
