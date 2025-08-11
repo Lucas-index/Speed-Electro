@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - SpeedElectro</title>
-    <link rel="stylesheet" href="./Paginas/Estilos/styl.css">
+    <link rel="stylesheet" href="../Paginas/Estilos/styl.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,11 +30,11 @@
                     <button class="icon-btn" id="searchBtn" title="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
-                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+                    <a href="../Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cartCount">0</span>
                     </a>
-                    <a href="/Paginas/Cadastro.html" class="btn btn-outline">Cadastrar</a>
+                    <a href="../Paginas/Cadastro.html" class="btn btn-outline">Cadastrar</a>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -94,7 +94,7 @@
 
                         <div style="text-align: center; padding: 20px 0; border-top: 1px solid var(--gray-800);">
                             <p style="color: var(--gray-400); margin-bottom: 16px;">Não tem uma conta?</p>
-                            <a href="./Paginas/Cadastro.html" class="btn btn-outline btn-full">
+                            <a href="../Paginas/Cadastro.html" class="btn btn-outline btn-full">
                                 <i class="fas fa-user-plus"></i>
                                 Criar Conta
                             </a>
@@ -177,10 +177,10 @@ onAuthStateChanged(auth, (user) => {
     const loginBtn = document.querySelector('.header-actions a.btn');
     if (user) {
         loginBtn.textContent = "Perfil";
-        loginBtn.href = "./Paginas/perfil.html";
+        loginBtn.href = "../Paginas/perfil.html";
     } else {
         loginBtn.textContent = "Login";
-        loginBtn.href = "./Paginas/Login.html";
+        loginBtn.href = "../Paginas/Login.html";
     }
 });
 </script>
