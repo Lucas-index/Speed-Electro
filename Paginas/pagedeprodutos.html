@@ -60,7 +60,7 @@
                     </a>
                     <a href="../Paginas/Cadastro.html" class="icon-btn" title="Minha Conta">
                         <i class="fas fa-user"></i>
-                    </a>
+                    </button>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span class="hamburger-line"></span>
@@ -954,12 +954,16 @@
                     console.log("Botão 'Adicionar ao Carrinho' clicado!");
 
                     const productCard = this.closest('.product-card');
+                    // Coleta o texto de cada item de especificação
+                    const specsList = Array.from(productCard.querySelectorAll('.product-specs li')).map(li => li.textContent.trim());
+
                     const productData = {
                         id: productCard.dataset.productId,
                         title: productCard.dataset.productTitle,
                         price: parseFloat(productCard.dataset.productPrice),
                         image: productCard.dataset.productImage,
-                        quantity: 1 // Adicionamos uma quantidade inicial
+                        specs: specsList, // Adiciona as especificações ao objeto
+                        quantity: 1
                     };
                     
                     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -975,9 +979,8 @@
                     }
 
                     localStorage.setItem('cart', JSON.stringify(cart));
-                    updateCartCount(cart.length);
-
-                    // Adiciona feedback visual (com o "toast")
+                    updateCartCount(); // Chama a função para atualizar a contagem
+                    
                     showFeedbackToast(`${productData.title} foi adicionado ao carrinho!`);
 
                     console.log("Carrinho atualizado:", cart);
@@ -992,11 +995,14 @@
                     console.log("Botão 'Comprar Agora' clicado!");
                     
                     const productCard = e.target.closest('.product-card');
+                    const specsList = Array.from(productCard.querySelectorAll('.product-specs li')).map(li => li.textContent.trim());
+
                     const productData = {
                         id: productCard.dataset.productId,
                         title: productCard.dataset.productTitle,
                         price: parseFloat(productCard.dataset.productPrice),
                         image: productCard.dataset.productImage,
+                        specs: specsList, // Adiciona as especificações ao objeto
                         quantity: 1 
                     };
                     
@@ -1004,7 +1010,7 @@
                     localStorage.setItem('cart', JSON.stringify([productData]));
 
                     // Redireciona para a página de checkout
-                    window.location.href = "../Paginas/checkout.html";
+                    window.location.href = "../Paginas/Carinho.html";
                 });
             });
 
@@ -1032,7 +1038,9 @@
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
                 const cartCountElement = document.getElementById('cartCount');
                 if (cartCountElement) {
-                    cartCountElement.textContent = cart.length;
+                    // Soma as quantidades de todos os itens no carrinho
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCountElement.textContent = totalItems;
                 }
             }
             updateCartCount();
