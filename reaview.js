@@ -400,16 +400,5 @@ document.getElementById('cartCount').textContent = cart.length
   })
 })
 
-window.SpeedElectro = {
-  addToCart(productId) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || []
-    cart.push(productId)
-    localStorage.setItem('cart', JSON.stringify(cart))
-    
-    // Atualiza contador
-    document.getElementById('cartCount').textContent = cart.length
-  }
-}
-
 
 
