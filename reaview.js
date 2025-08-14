@@ -362,9 +362,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2000)
 
       // Update cart count if main.js is loaded
-      if (window.SpeedElectro && window.SpeedElectro.addToCart) {
-        window.SpeedElectro.addToCart(productId)
-      }
+      let cart = JSON.parse(localStorage.getItem('cart')) || []
+cart.push(productId)
+localStorage.setItem('cart', JSON.stringify(cart))
+
+// Atualiza o contador no ícone
+document.getElementById('cartCount').textContent = cart.length
     })
   })
 
