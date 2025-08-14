@@ -170,8 +170,18 @@
   // Cadastro
   document.getElementById('registerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    console.log("Usuário cadastrado:", userCredential.user);
+  })
+  .catch((error) => {
+    console.error("Erro no cadastro:", error.message);
+    alert("Erro no cadastro: " + error.message);
+  });
+
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
