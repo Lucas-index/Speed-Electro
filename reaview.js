@@ -342,21 +342,6 @@ function debounce(func, wait) {
 // Clique no produto leva para página de detalhes com nome certo
 document.addEventListener("DOMContentLoaded", () => { window.productsManager = new ProductsManager()
 document.addEventListener("DOMContentLoaded", () => {
-    // Seleciona todos os botões "Comprar Agora" ou "Adicionar ao Carrinho"
-    document.querySelectorAll(".add-to-cart, .buy-now").forEach(button => {
-        button.addEventListener("click", (e) => {
-            e.stopPropagation(); // evita conflitos com outros cliques
-            const card = button.closest(".product-card");
-            if (!card) return;
-
-            const id = button.getAttribute("data-product-id") || card.getAttribute("data-product-id");
-            if (!id) return;
-
-            // Redireciona para a página do produto com o ID
-            window.location.href = `pagedeprodutos.html?id=${id}`;
-        });
-    });
-});
   // Initialize add to cart functionality
   const addToCartBtns = document.querySelectorAll(".add-to-cart")
   addToCartBtns.forEach((btn) => {
