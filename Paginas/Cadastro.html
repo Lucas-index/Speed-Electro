@@ -140,62 +140,49 @@
     </section>
 
     <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { 
-    getAuth, 
-    createUserWithEmailAndPassword
-  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { 
-    getFirestore, 
-    doc, 
-    setDoc
-  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  // Configuração do Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
-    authDomain: "seedelectro.firebaseapp.com",
-    projectId: "seedelectro",
-    storageBucket: "seedelectro.firebasestorage.app",
-    messagingSenderId: "275204209258",
-    appId: "1:275204209258:web:aec29e2797350ac136e813",
-    measurementId: "G-RQY204S4E0"
-  };
+    // 🔹 Config do Firebase
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "SEU_AUTH_DOMAIN",
+      projectId: "SEU_PROJECT_ID",
+      storageBucket: "SEU_STORAGE_BUCKET",
+      messagingSenderId: "SEU_SENDER_ID",
+      appId: "SEU_APP_ID"
+    };
 
-  // Inicializa Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  // Cadastro
-  document.getElementById('registerForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+    // 🔹 Cadastro
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    console.log("Usuário cadastrado:", userCredential.user);
-  })
-  .catch((error) => {
-    console.error("Erro no cadastro:", error.message);
-    alert("Erro no cadastro: " + error.message);
-  });
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
+      try {
+        // cria usuário
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await setDoc(doc(db, "users", userCredential.user.uid), { 
-        cart: [], 
-        pcConfig: {} 
-      });
-      alert("Cadastro realizado com sucesso!");
-      window.location.href = "/Speed-Electro/index.html"; // redireciona para o index
-    } catch (error) {
-      alert("Erro no cadastro: " + error.message);
-    }
-  });
-</script>
+        // salva dados extras do usuário no Firestore
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+          cart: [],
+          pcConfig: {}
+        });
+
+        alert("Cadastro realizado com sucesso!");
+        window.location.href = "/Speed-Electro/index.html"; // redireciona para home
+      } catch (error) {
+        console.error("Erro no cadastro:", error.message);
+        alert("Erro no cadastro: " + error.message);
+      }
+    });
+  </script>
 
 
 </body>
