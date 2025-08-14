@@ -340,6 +340,7 @@ function debounce(func, wait) {
 
 // Initialize when DOM is loaded
 // Clique no produto leva para página de detalhes com nome certo
+document.addEventListener("DOMContentLoaded", () => { window.productsManager = new ProductsManager()
 document.addEventListener("DOMContentLoaded", () => {
     // Seleciona todos os botões "Comprar Agora" ou "Adicionar ao Carrinho"
     document.querySelectorAll(".add-to-cart, .buy-now").forEach(button => {
