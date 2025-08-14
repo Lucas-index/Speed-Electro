@@ -339,11 +339,11 @@ function debounce(func, wait) {
 }
 
 // Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  window.productsManager = new ProductsManager()
-  document.querySelectorAll(".product-card").forEach(card => {
+// Clique no produto leva para página de detalhes com nome certo
+document.querySelectorAll(".product-card").forEach(card => {
   card.addEventListener("click", () => {
     const title = card.querySelector(".product-title").textContent.trim();
+    // redireciona com o nome na URL
     window.location.href = `pagedeprodutos.html?nome=${encodeURIComponent(title)}`;
   });
 });
