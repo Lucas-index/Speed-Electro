@@ -143,29 +143,23 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { 
     getAuth, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    GoogleAuthProvider, 
-    FacebookAuthProvider, 
-    signInWithPopup 
+    createUserWithEmailAndPassword
   } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   import { 
     getFirestore, 
     doc, 
-    setDoc, 
-    getDoc, 
-    updateDoc 
+    setDoc
   } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
   // Configuração do Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
-  authDomain: "seedelectro.firebaseapp.com",
-  projectId: "seedelectro",
-  storageBucket: "seedelectro.firebasestorage.app",
-  messagingSenderId: "275204209258",
-  appId: "1:275204209258:web:aec29e2797350ac136e813",
-  measurementId: "G-RQY204S4E0"
+    authDomain: "seedelectro.firebaseapp.com",
+    projectId: "seedelectro",
+    storageBucket: "seedelectro.firebasestorage.app",
+    messagingSenderId: "275204209258",
+    appId: "1:275204209258:web:aec29e2797350ac136e813",
+    measurementId: "G-RQY204S4E0"
   };
 
   // Inicializa Firebase
@@ -173,30 +167,26 @@
   const auth = getAuth(app);
   const db = getFirestore(app);
 
-  // Exemplo de cadastro
+  // Cadastro
   document.getElementById('registerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await setDoc(doc(db, "users", userCredential.user.uid), { cart: [], pcConfig: {} });
+      await setDoc(doc(db, "users", userCredential.user.uid), { 
+        cart: [], 
+        pcConfig: {} 
+      });
       alert("Cadastro realizado com sucesso!");
+      window.location.href = "/Speed-Electro/index.html"; // redireciona para o index
     } catch (error) {
       alert("Erro no cadastro: " + error.message);
     }
   });
-
-        try {
-  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  await setDoc(doc(db, "users", userCredential.user.uid), { cart: [], pcConfig: {} });
-  alert("Cadastro realizado com sucesso!");
-  window.location.href = "/Speed-Electro/index.html"; // redireciona para o index
-} catch (error) {
-  alert("Erro no cadastro: " + error.message);
-}
-
 </script>
+
 
 </body>
 </html>
