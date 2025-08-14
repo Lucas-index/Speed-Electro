@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.preventDefault()
       // Redirect to checkout or show quick buy modal
-      window.location.href = "checkout.html"
+      window.location.href = "../Paginas/checkout.html"
     })
   })
 })
