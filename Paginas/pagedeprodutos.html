@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - SpeedElectro</title>
-    <!-- O arquivo CSS 'styl.css' do usuário foi preservado. -->
     <link rel="stylesheet" href="../Paginas/Estilos/styl.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,8 +291,9 @@
 
                     <!-- Products Grid -->
                     <div class="products-grid" id="productsGrid">
+                        <!-- ATENÇÃO: Adicionados os atributos data-product-id, data-product-title, data-product-price e data-product-image -->
                         <!-- Product 1 -->
-                        <div class="product-card" data-category="workstation" data-price="10599" data-brand="speedelectro" data-gpu="rx9070" data-ram="64gb" data-storage="3tb" data-rating="5">
+                        <div class="product-card" data-product-id="workstation-pro-creator-1" data-product-title="Working Pro Creator" data-product-price="10599" data-product-image="/Speed-Electro/IMG3.png" data-category="workstation" data-price="10599" data-brand="speedelectro" data-gpu="rx9070" data-ram="64gb" data-storage="3tb" data-rating="5">
                             <div class="product-image">
                                 <img src="/Speed-Electro/IMG3.png" alt="PC Office" loading="lazy">
                                 <div class="product-badges">
@@ -348,7 +348,7 @@
                             </div>
                         </div>
                         <!-- Product 2 -->
-                        <div class="product-card" data-category="gaming" data-price="4999" data-brand="speedelectro" data-gpu="rtx4070" data-ram="16gb" data-storage="1tb" data-rating="5">
+                        <div class="product-card" data-product-id="pc-gamer-rtx4070-2" data-product-title="PC Gamer RTX 4070 Super" data-product-price="4999" data-product-image="/Speed-Electro/IMG2.png" data-category="gaming" data-price="4999" data-brand="speedelectro" data-gpu="rtx4070" data-ram="16gb" data-storage="1tb" data-rating="5">
                             <div class="product-image">
                                 <img src="/Speed-Electro/IMG2.png" alt="PC Gamer RTX 4070" loading="lazy">
                                 <div class="product-badges">
@@ -403,7 +403,7 @@
                             </div>
                         </div>
                         <!-- Product 3 -->
-                        <div class="product-card" data-category="workstation" data-price="7299" data-brand="custom" data-gpu="rtx4080" data-ram="32gb" data-storage="2tb" data-rating="5">
+                        <div class="product-card" data-product-id="workstation-pro-creator-3" data-product-title="Workstation Pro Creator" data-product-price="7299" data-product-image="/Speed-Electro/IMG.png" data-category="workstation" data-price="7299" data-brand="custom" data-gpu="rtx4080" data-ram="32gb" data-storage="2tb" data-rating="5">
                             <div class="product-image">
                                 <img src="/Speed-Electro/IMG.png" alt="Workstation Pro" loading="lazy">
                                 <div class="product-badges">
@@ -458,7 +458,7 @@
                             </div>
                         </div>
                         <!-- Product 4 -->
-                        <div class="product-card" data-category="budget" data-price="1899" data-brand="speedelectro" data-gpu="gtx1660" data-ram="16gb" data-storage="512gb" data-rating="4">
+                        <div class="product-card" data-product-id="pc-entry-level-4" data-product-title="PC Entry Level Gamer" data-product-price="1899" data-product-image="/Speed-Electro/IMG4.png" data-category="budget" data-price="1899" data-brand="speedelectro" data-gpu="gtx1660" data-ram="16gb" data-storage="512gb" data-rating="4">
                             <div class="product-image">
                                 <img src="/Speed-Electro/IMG4.png" alt="PC Entry Level" loading="lazy">
                                 <div class="product-badges">
@@ -513,7 +513,7 @@
                             </div>
                         </div>
                         <!-- Product 5 -->
-                        <div class="product-card" data-category="gaming" data-price="12999" data-brand="custom" data-gpu="rtx4090" data-ram="64gb" data-storage="4tb" data-rating="5">
+                        <div class="product-card" data-product-id="pc-extreme-gaming-5" data-product-title="PC Extreme Gaming 4K" data-product-price="12999" data-product-image="/Speed-Electro/IMG5.png" data-category="gaming" data-price="12999" data-brand="custom" data-gpu="rtx4090" data-ram="64gb" data-storage="4tb" data-rating="5">
                             <div class="product-image">
                                 <img src="/Speed-Electro/IMG5.png" alt="PC Extreme Gaming" loading="lazy">
                                 <div class="product-badges">
@@ -568,7 +568,7 @@
                             </div>
                         </div>
                         <!-- Product 6 -->
-                        <div class="product-card" data-category="workstation" data-price="3499" data-brand="custom" data-gpu="rtx4060" data-ram="32gb" data-storage="1tb" data-rating="5">
+                        <div class="product-card" data-product-id="workstation-compact-6" data-product-title="Workstation Compact" data-product-price="3499" data-product-image="/Speed-Electro/IMG6.png" data-category="workstation" data-price="3499" data-brand="custom" data-gpu="rtx4060" data-ram="32gb" data-storage="1tb" data-rating="5">
                             <div class="product-image">
                                 <img src="/Speed-Electro/IMG6.png" alt="Workstation Compact" loading="lazy">
                                 <div class="product-badges">
@@ -718,15 +718,17 @@
             loadProducts() {
                 this.products = Array.from(document.querySelectorAll(".product-card")).map((card) => ({
                     element: card,
+                    id: card.dataset.productId,
+                    title: card.dataset.productTitle,
+                    price: Number.parseFloat(card.dataset.productPrice),
+                    image: card.dataset.productImage,
                     category: card.dataset.category,
-                    price: Number.parseInt(card.dataset.price),
                     brand: card.dataset.brand,
                     gpu: card.dataset.gpu,
                     ram: card.dataset.ram,
                     storage: card.dataset.storage,
                     rating: Number.parseInt(card.dataset.rating),
-                    title: card.querySelector(".product-title").textContent.toLowerCase(),
-                    specs: card.querySelector(".product-specs").textContent.toLowerCase(),
+                    searchableText: (card.querySelector(".product-title").textContent + ' ' + card.querySelector(".product-specs").textContent).toLowerCase(),
                 }));
                 this.filteredProducts = [...this.products];
             }
@@ -839,7 +841,7 @@
 
             applyFilters() {
                 this.filteredProducts = this.products.filter((product) => {
-                    if (this.currentFilters.search && !product.title.includes(this.currentFilters.search) && !product.specs.includes(this.currentFilters.search)) {
+                    if (this.currentFilters.search && !product.searchableText.includes(this.currentFilters.search)) {
                         return false;
                     }
                     if (this.currentFilters.categories.length > 0 && !this.currentFilters.categories.includes(product.category)) {
@@ -937,7 +939,7 @@
             }
         }
         
-        // --- FUNÇÕES DE DIAGNÓSTICO E EVENTOS DE CLIQUE ---
+        // --- FUNÇÕES DE DIAGNÓSTICO E EVENTOS DE CLIQUE CORRIGIDOS ---
         document.addEventListener("DOMContentLoaded", () => {
             console.log("Página de produtos carregada. Inicializando funcionalidades.");
 
@@ -952,20 +954,33 @@
                     console.log("Botão 'Adicionar ao Carrinho' clicado!");
 
                     const productCard = this.closest('.product-card');
-                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    const productData = {
+                        id: productCard.dataset.productId,
+                        title: productCard.dataset.productTitle,
+                        price: parseFloat(productCard.dataset.productPrice),
+                        image: productCard.dataset.productImage,
+                        quantity: 1 // Adicionamos uma quantidade inicial
+                    };
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    const existingProductIndex = cart.findIndex(item => item.id === productData.id);
+
+                    if (existingProductIndex !== -1) {
+                        // Se o produto já está no carrinho, apenas aumenta a quantidade
+                        cart[existingProductIndex].quantity++;
+                    } else {
+                        // Se não, adiciona o novo produto
+                        cart.push(productData);
+                    }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount(cart.length);
 
                     // Adiciona feedback visual (com o "toast")
-                    showFeedbackToast(`${productTitle} foi adicionado ao carrinho!`);
+                    showFeedbackToast(`${productData.title} foi adicionado ao carrinho!`);
 
-                    // Lógica para atualizar o carrinho (mantida do seu código)
-                    const productId = this.getAttribute("data-product-id");
-                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                    cart.push(productId);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    const cartCountElement = document.getElementById('cartCount');
-                    if (cartCountElement) {
-                        cartCountElement.textContent = cart.length;
-                    }
+                    console.log("Carrinho atualizado:", cart);
                 });
             });
 
@@ -977,13 +992,19 @@
                     console.log("Botão 'Comprar Agora' clicado!");
                     
                     const productCard = e.target.closest('.product-card');
-                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    const productData = {
+                        id: productCard.dataset.productId,
+                        title: productCard.dataset.productTitle,
+                        price: parseFloat(productCard.dataset.productPrice),
+                        image: productCard.dataset.productImage,
+                        quantity: 1 
+                    };
+                    
+                    // Limpa o carrinho e adiciona apenas o item atual para a compra
+                    localStorage.setItem('cart', JSON.stringify([productData]));
 
-                    // Adiciona feedback visual (com o "toast")
-                    showFeedbackToast(`Iniciando a compra de ${productTitle}...`, 'info');
-
-                    // Lógica para redirecionar (mantida do seu código)
-                    // window.location.href = "../Paginas/checkout.html";
+                    // Redireciona para a página de checkout
+                    window.location.href = "../Paginas/Carinho.html";
                 });
             });
 
@@ -1005,6 +1026,16 @@
                 });
             });
             console.log("Eventos de clique prontos!");
+
+            // Função para inicializar a contagem do carrinho
+            function updateCartCount() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartCountElement = document.getElementById('cartCount');
+                if (cartCountElement) {
+                    cartCountElement.textContent = cart.length;
+                }
+            }
+            updateCartCount();
         });
     </script>
 </body>
