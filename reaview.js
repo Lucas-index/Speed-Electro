@@ -341,6 +341,12 @@ function debounce(func, wait) {
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   window.productsManager = new ProductsManager()
+  document.querySelectorAll(".product-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const title = card.querySelector(".product-title").textContent.trim();
+    window.location.href = `pagedeprodutos.html?nome=${encodeURIComponent(title)}`;
+  });
+});
 
   // Initialize add to cart functionality
   const addToCartBtns = document.querySelectorAll(".add-to-cart")
