@@ -157,7 +157,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log("Usuário logado:", userCredential.user.uid);
         await loadCartFromFirebase(userCredential.user.uid);
-        window.location.href = "./index.html";
+       window.location.href = "/Speed-Electro/index.html";
     } catch (error) {
         alert("Erro no login: " + error.message);
     }
