@@ -340,14 +340,22 @@ function debounce(func, wait) {
 
 // Initialize when DOM is loaded
 // Clique no produto leva para página de detalhes com nome certo
-document.querySelectorAll(".product-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const title = card.querySelector(".product-title").textContent.trim();
-    // redireciona com o nome na URL
-    window.location.href = `pagedeprodutos.html?nome=${encodeURIComponent(title)}`;
-  });
-});
+document.addEventListener("DOMContentLoaded", () => {
+    // Seleciona todos os botões "Comprar Agora" ou "Adicionar ao Carrinho"
+    document.querySelectorAll(".add-to-cart, .buy-now").forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.stopPropagation(); // evita conflitos com outros cliques
+            const card = button.closest(".product-card");
+            if (!card) return;
 
+            const id = button.getAttribute("data-product-id") || card.getAttribute("data-product-id");
+            if (!id) return;
+
+            // Redireciona para a página do produto com o ID
+            window.location.href = `pagedeprodutos.html?id=${id}`;
+        });
+    });
+});
   // Initialize add to cart functionality
   const addToCartBtns = document.querySelectorAll(".add-to-cart")
   addToCartBtns.forEach((btn) => {
