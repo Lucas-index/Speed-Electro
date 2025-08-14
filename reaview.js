@@ -339,9 +339,9 @@ function debounce(func, wait) {
 }
 
 // Initialize when DOM is loaded
-// Clique no produto leva para página de detalhes com nome certo
-document.addEventListener("DOMContentLoaded", () => { window.productsManager = new ProductsManager()
-document.addEventListener("DOMContentLoaded", () => {
+ddocument.addEventListener("DOMContentLoaded", () => {
+  window.productsManager = new ProductsManager()
+
   // Initialize add to cart functionality
   const addToCartBtns = document.querySelectorAll(".add-to-cart")
   addToCartBtns.forEach((btn) => {
@@ -362,12 +362,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2000)
 
       // Update cart count if main.js is loaded
-      let cart = JSON.parse(localStorage.getItem('cart')) || []
-cart.push(productId)
-localStorage.setItem('cart', JSON.stringify(cart))
-
-// Atualiza o contador no ícone
-document.getElementById('cartCount').textContent = cart.length
+      if (window.SpeedElectro && window.SpeedElectro.addToCart) {
+        window.SpeedElectro.addToCart(productId)
+      }
     })
   })
 
@@ -399,6 +396,4 @@ document.getElementById('cartCount').textContent = cart.length
     })
   })
 })
-
-
 
