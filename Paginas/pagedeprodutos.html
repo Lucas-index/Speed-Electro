@@ -645,5 +645,21 @@
     </section>
 
     <script src="/Speed-Electro/reaview.js"></script>
+    <script>
+         onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // Se logado → botão vira "Perfil"
+      loginBtn.textContent = "Perfil";
+      loginBtn.onclick = () => {
+        window.location.href = "/Speed-Electro/Paginas/Perfil.html";
+      };
+    } else {
+      // Se não logado → botão vai para Login
+      loginBtn.textContent = "Login";
+      loginBtn.onclick = () => {
+        window.location.href = "/Speed-Electro/Paginas/Login.html";
+      };
+    }
+    </script>
 </body>
 </html>
