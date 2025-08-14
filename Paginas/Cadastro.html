@@ -184,6 +184,16 @@
       alert("Erro no cadastro: " + error.message);
     }
   });
+
+        try {
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  await setDoc(doc(db, "users", userCredential.user.uid), { cart: [], pcConfig: {} });
+  alert("Cadastro realizado com sucesso!");
+  window.location.href = "/Speed-Electro/index.html"; // redireciona para o index
+} catch (error) {
+  alert("Erro no cadastro: " + error.message);
+}
+
 </script>
 
 </body>
