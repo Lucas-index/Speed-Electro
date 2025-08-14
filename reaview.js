@@ -397,4 +397,31 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
+window.SpeedElectro = {
+  cart: JSON.parse(localStorage.getItem("cart")) || [],
+
+  addToCart(productId) {
+    // Adiciona item ao carrinho
+    this.cart.push({ id: productId })
+
+    // Salva no localStorage
+    localStorage.setItem("cart", JSON.stringify(this.cart))
+
+    // Atualiza contador visual
+    this.updateCartCount()
+  },
+
+  updateCartCount() {
+    const cartCount = document.getElementById("cartCount")
+    if (cartCount) {
+      cartCount.textContent = this.cart.length
+    }
+  }
+}
+
+// Atualiza ao carregar página
+document.addEventListener("DOMContentLoaded", () => {
+  window.SpeedElectro.updateCartCount()
+})
+
 
