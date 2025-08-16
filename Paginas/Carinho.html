@@ -29,6 +29,14 @@
                     <button class="icon-btn" id="searchBtn" title="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
+                    <!-- Adicionado o ícone do carrinho com contador para consistência -->
+                    <a href="../Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="../Paginas/Cadastro.html" class="icon-btn" title="Minha Conta">
+                        <i class="fas fa-user"></i>
+                    </a>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -42,8 +50,6 @@
 
     <section class="products" style="padding-top: 120px;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start;">
-                    </div>
             <div class="section-header">
                 <div class="section-badge">
                     <i class="fas fa-shopping-cart"></i>
@@ -60,7 +66,8 @@
             <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start;">
                 <div class="service-card" style="padding: 32px;">
                     <div id="cartItems">
-                        </div>
+                        <!-- Itens do carrinho serão renderizados aqui pelo JavaScript -->
+                    </div>
 
                     <div style="margin-top: 24px; display: flex; gap: 16px;">
                         <a href="../Paginas/pagedeprodutos.html" class="btn btn-outline" style="flex: 1;">
@@ -127,17 +134,19 @@
     </section>
 
     <script>
-        let cart = [];
+        // A chave do localStorage deve ser a mesma usada na página de produtos
+        let cart = []; // Inicializa o carrinho como um array vazio
 
-        // Função para obter o carrinho do localStorage ou iniciar um novo
+        // Função para obter o carrinho do localStorage
         function getCart() {
-            const cartData = localStorage.getItem('cart');
+            const cartData = localStorage.getItem('pcmaster_cart'); // ALTERADO: Usar 'pcmaster_cart'
             return cartData ? JSON.parse(cartData) : [];
         }
 
         // Função para salvar o carrinho no localStorage
         function saveCart(updatedCart) {
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            localStorage.setItem('pcmaster_cart', JSON.stringify(updatedCart)); // ALTERADO: Usar 'pcmaster_cart'
+            updateCartCount(); // Atualiza o contador do carrinho na header
         }
 
         // Função para formatar o valor monetário
@@ -153,7 +162,7 @@
             const cartItemsContainer = document.getElementById('cartItems');
             cartItemsContainer.innerHTML = ''; // Limpa os itens existentes
             
-            cart = getCart();
+            cart = getCart(); // Carrega o carrinho atualizado
 
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = `
@@ -171,16 +180,17 @@
                         <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                         <div style="flex: 1;">
                             <h4 style="color: var(--white); font-size: 18px; margin-bottom: 8px;">${item.name}</h4>
-                            <p style="color: var(--gray-400); font-size: 14px; margin-bottom: 8px;">${item.description}</p>
+                            <!-- A descrição do produto não está no objeto 'products' do uniao.js, então pode ser vazia ou precisar ser adicionada lá -->
+                            <p style="color: var(--gray-400); font-size: 14px; margin-bottom: 8px;">${item.description || ''}</p> 
                             <div style="color: var(--orange-500); font-weight: 600; font-size: 16px;">${formatCurrency(item.price)}</div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-800); border-radius: 8px; padding: 8px;">
-                                <button onclick="updateQuantity(${item.id}, -1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">-</button>
+                                <button onclick="updateQuantity('${item.id}', -1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">-</button>
                                 <span style="color: var(--white); min-width: 20px; text-align: center;">${item.quantity}</span>
-                                <button onclick="updateQuantity(${item.id}, 1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">+</button>
+                                <button onclick="updateQuantity('${item.id}', 1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">+</button>
                             </div>
-                            <button onclick="removeItem(${item.id})" style="background: none; border: none; color: var(--red-500); cursor: pointer; padding: 8px;">
+                            <button onclick="removeItem('${item.id}')" style="background: none; border: none; color: var(--red-500); cursor: pointer; padding: 8px;">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -188,6 +198,7 @@
                     cartItemsContainer.appendChild(cartItemElement);
                 });
             }
+            renderOrderSummary(); // Garante que o resumo seja atualizado após renderizar os itens
         }
 
         // Função para recalcular e renderizar o resumo do pedido
@@ -224,9 +235,9 @@
                     removeItem(itemId);
                     return; // Sai da função para evitar recálculo duplo
                 }
-                saveCart(cart);
-                renderCartItems();
-                renderOrderSummary();
+                saveCart(cart); // Salva o carrinho atualizado
+                renderCartItems(); // Renderiza novamente os itens
+                renderOrderSummary(); // Atualiza o resumo
             }
         }
 
@@ -234,9 +245,9 @@
         function removeItem(itemId) {
             if (confirm('Tem certeza que deseja remover este item?')) {
                 cart = cart.filter(item => item.id !== itemId);
-                saveCart(cart);
-                renderCartItems();
-                renderOrderSummary();
+                saveCart(cart); // Salva o carrinho atualizado
+                renderCartItems(); // Renderiza novamente os itens
+                renderOrderSummary(); // Atualiza o resumo
             }
         }
 
@@ -244,9 +255,9 @@
         function clearCart() {
             if (confirm('Tem certeza que deseja limpar todo o carrinho?')) {
                 cart = [];
-                saveCart(cart);
-                renderCartItems();
-                renderOrderSummary();
+                saveCart(cart); // Salva o carrinho vazio
+                renderCartItems(); // Renderiza novamente (mostrará carrinho vazio)
+                renderOrderSummary(); // Atualiza o resumo
             }
         }
 
@@ -255,6 +266,7 @@
             const couponCode = document.getElementById('couponInput').value;
             alert(`Aplicando cupom: ${couponCode}`);
             // Aqui você faria a lógica real de validação e aplicação do desconto
+            // Após aplicar o desconto, chame renderOrderSummary() para atualizar os valores
         }
 
         // Função para finalizar a compra
@@ -266,11 +278,20 @@
             }, 500);
         }
 
-        // Inicializa o carrinho quando a página carrega
+        // Função para atualizar o contador do carrinho na header (necessária também aqui)
+        function updateCartCount() {
+            const cartCountElement = document.getElementById('cartCount');
+            if (cartCountElement) { // Verifica se o elemento existe
+                const currentCart = getCart();
+                const totalItems = currentCart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+            }
+        }
+
+        // Inicializa o carrinho e renderiza os itens quando a página carrega
         document.addEventListener('DOMContentLoaded', () => {
-            cart = getCart(); // Carrega o carrinho do localStorage
-            renderCartItems();
-            renderOrderSummary();
+            updateCartCount(); // Atualiza o contador na header ao carregar a página
+            renderCartItems(); // Renderiza os itens do carrinho
         });
     </script>
 </body>
