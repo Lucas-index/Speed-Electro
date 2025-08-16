@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca de Equipamentos - SpeedElectro</title>
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Speed<span class="logo-accent">Electro</span></span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="produtos.html" class="nav-link">Produtos</a>
+                    <a href="montar-pc.html" class="nav-link">Montar PC</a>
+                    <a href="explorar.html" class="nav-link">Explorar</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="carrinho.html" class="icon-btn cart-btn" title="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 120px 0 80px;">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Troca de Equipamentos</span>
+                </div>
+                <h2 class="section-title">
+                    Troque seu <span class="text-gradient">Equipamento</span> Antigo
+                </h2>
+                <p class="section-description">
+                    Avalie seu equipamento e economize na compra do novo
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trade Process -->
+    <section class="build-section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="build-content">
+                <div class="build-info">
+                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 24px;">Como Funciona a Troca</h3>
+                    
+                    <div class="build-process">
+                        <div class="process-step">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <h4>Avaliação Online</h4>
+                                <p>Preencha o formulário com os dados do seu equipamento</p>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h4>Proposta Instantânea</h4>
+                                <p>Receba uma proposta de valor em até 30 minutos</p>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Confirmação</h4>
+                                <p>Aceite a proposta e agende a entrega/retirada</p>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h4>Compra com Desconto</h4>
+                                <p>Use o valor da troca na compra do seu novo equipamento</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="build-benefits">
+                        <h4>Vantagens da Troca:</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Avaliação justa e transparente</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Processo rápido e simples</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Garantia na transação</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-recycle"></i>
+                                <span>Descarte ecológico responsável</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trade Form -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Avaliar Equipamento</h3>
+                        <p>Preencha os dados para receber uma proposta</p>
+                    </div>
+
+                    <form id="tradeForm">
+                        <div class="form-group">
+                            <label for="equipmentType">Tipo de Equipamento</label>
+                            <select id="equipmentType" name="equipmentType" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="desktop">Desktop/PC Completo</option>
+                                <option value="notebook">Notebook</option>
+                                <option value="gpu">Placa de Vídeo</option>
+                                <option value="cpu">Processador</option>
+                                <option value="ram">Memória RAM</option>
+                                <option value="storage">HD/SSD</option>
+                                <option value="motherboard">Placa Mãe</option>
+                                <option value="psu">Fonte</option>
+                                <option value="monitor">Monitor</option>
+                                <option value="peripherals">Periféricos</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="brand">Marca</label>
+                                <input type="text" id="brand" name="brand" required placeholder="Ex: ASUS, Dell, Intel...">
+                            </div>
+                            <div class="form-group">
+                                <label for="model">Modelo</label>
+                                <input type="text" id="model" name="model" required placeholder="Modelo específico">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specifications">Especificações Técnicas</label>
+                            <textarea id="specifications" name="specifications" rows="4" required placeholder="Descreva as especificações: processador, memória, placa de vídeo, etc."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="purchaseYear">Ano de Compra</label>
+                                <select id="purchaseYear" name="purchaseYear" required>
+                                    <option value="">Selecione o ano</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="anterior">Anterior a 2018</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="condition">Estado de Conservação</label>
+                                <select id="condition" name="condition" required>
+                                    <option value="">Selecione o estado</option>
+                                    <option value="excelente">Excelente (como novo)</option>
+                                    <option value="muito-bom">Muito Bom (pequenos riscos)</option>
+                                    <option value="bom">Bom (sinais de uso)</option>
+                                    <option value="regular">Regular (desgaste visível)</option>
+                                    <option value="ruim">Ruim (problemas funcionais)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issues">Problemas ou Defeitos</label>
+                            <textarea id="issues" name="issues" rows="3" placeholder="Descreva qualquer problema, defeito ou limitação do equipamento..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accessories">Acessórios Inclusos</label>
+                            <textarea id="accessories" name="accessories" rows="2" placeholder="Liste os acessórios que acompanham: cabos, manuais, caixa original, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="originalPrice">Preço Original de Compra (opcional)</label>
+                            <input type="text" id="originalPrice" name="originalPrice" placeholder="R$ 0,00">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="desiredProduct">Produto de Interesse para Compra</label>
+                            <textarea id="desiredProduct" name="desiredProduct" rows="3" placeholder="Descreva o produto que deseja comprar com o valor da troca..."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    <span>Aceito os <a href="#" class="terms-link">termos de troca</a> e <a href="#" class="terms-link">política de privacidade</a></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large" id="evaluateBtn">
+                            <i class="fas fa-calculator"></i>
+                            Solicitar Avaliação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trade Values Reference -->
+    <section class="services" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Valores de Referência</span>
+                </div>
+                <h2 class="section-title">
+                    Tabela de <span class="text-gradient">Valores</span> Aproximados
+                </h2>
+                <p class="section-description">
+                    Valores estimados para equipamentos em bom estado de conservação
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon orange">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="service-badge">PCs Completos</div>
+                    </div>
+                    <h3>Desktops</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>PC Gamer 2024: R$ 2.000 - R$ 8.000</li>
+                        <li><i class="fas fa-check"></i>PC Gamer 2023: R$ 1.500 - R$ 6.000</li>
+                        <li><i class="fas fa-check"></i>PC Escritório: R$ 400 - R$ 1.500</li>
+                        <li><i class="fas fa-check"></i>Workstation: R$ 1.000 - R$ 5.000</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon red">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="service-badge">Notebooks</div>
+                    </div>
+                    <h3>Laptops</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Gaming 2024: R$ 3.000 - R$ 12.000</li>
+                        <li><i class="fas fa-check"></i>Gaming 2023: R$ 2.000 - R$ 8.000</li>
+                        <li><i class="fas fa-check"></i>Ultrabook: R$ 1.500 - R$ 6.000</li>
+                        <li><i class="fas fa-check"></i>Básico: R$ 500 - R$ 2.000</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon orange">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="service-badge">Componentes</div>
+                    </div>
+                    <h3>Peças</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>RTX 4090: R$ 8.000 - R$ 12.000</li>
+                        <li><i class="fas fa-check"></i>RTX 4070: R$ 3.000 - R$ 4.500</li>
+                        <li><i class="fas fa-check"></i>Ryzen 7: R$ 800 - R$ 2.000</li>
+                        <li><i class="fas fa-check"></i>SSD 1TB: R$ 200 - R$ 600</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px;">
+                <p style="color: var(--gray-400); margin-bottom: 24px;">
+                    *Valores aproximados. A avaliação final depende do estado, modelo e demanda do mercado.
+                </p>
+                <a href="#" class="btn btn-outline btn-large" onclick="document.getElementById('tradeForm').scrollIntoView();">
+                    <i class="fas fa-calculator"></i>
+                    Avaliar Meu Equipamento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Phone mask
+        document.getElementById('phone').addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+            this.value = value;
+        });
+
+        // Price mask
+        document.getElementById('originalPrice').addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            if (value) {
+                value = (value / 100).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+                this.value = value;
+            }
+        });
+
+        // Form submission
+        document.getElementById('tradeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('evaluateBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando avaliação...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Avaliação Enviada!';
+                btn.style.background = '#10b981';
+                
+                alert('Avaliação enviada com sucesso!\nVocê receberá nossa proposta por e-mail em até 30 minutos.');
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
