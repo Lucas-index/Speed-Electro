@@ -25,34 +25,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// ===== CARRINHO LOCAL =====
-let cart = JSON.parse(localStorage.getItem("pcmaster_cart")) || [];
 
-// ===== SALVAR NO FIREBASE =====
-async function saveCartToFirebase(cart) {
-  if (!auth.currentUser) return;
-  const uid = auth.currentUser.uid;
-  await updateDoc(doc(db, "users", uid), { cart });
-}
-
-// ===== CARREGAR DO FIREBASE =====
-async function loadCartFromFirebase() {
-  if (!auth.currentUser) return;
-  const uid = auth.currentUser.uid;
-  const docSnap = await getDoc(doc(db, "users", uid));
-  if (docSnap.exists()) {
-    cart = docSnap.data().cart || [];
-    localStorage.setItem("pcmaster_cart", JSON.stringify(cart));
-    updateCartDisplay();
-  }
-}
-
-// ===== SINCRONIZAR AO LOGAR =====
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    loadCartFromFirebase();
-  }
-}); 
 
 // Mobile Menu Toggle
 document.addEventListener("DOMContentLoaded", () => {
@@ -119,17 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
   
-  // Add to Cart Functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    const addToCartBtns = document.querySelectorAll(".add-to-cart")
-  
-    addToCartBtns.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const productId = this.getAttribute("data-product-id")
-        addToCart(productId)
-      })
-    })
-  })
   
   function addToCart(productId) {
     // Product data (in a real app, this would come from an API)
@@ -277,40 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartDisplay()
   }
   
-  function showCartNotification(productName) {
-    // Create notification element
-    const notification = document.createElement("div")
-    notification.className = "cart-notification"
-    notification.innerHTML = `
-      <i class="fas fa-check-circle"></i>
-      <span>${productName} adicionado ao carrinho!</span>
-    `
-    // Add styles
-    notification.style.cssText = `
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      background: var(--gradient-orange);
-      color: var(--black);
-      padding: 16px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      z-index: 5000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: var(--shadow-lg);
-      animation: slideInRight 0.3s ease;
-    `
-    document.body.appendChild(notification)
-    // Remove after 3 seconds
-    setTimeout(() => {
-      notification.style.animation = "slideOutRight 0.3s ease"
-      setTimeout(() => {
-        document.body.removeChild(notification)
-      }, 300)
-    }, 3000)
-  }
+
   
   // Quick view modal
   function openQuickView(productId) {
