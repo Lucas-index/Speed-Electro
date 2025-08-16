@@ -3,12 +3,12 @@ let cart = JSON.parse(localStorage.getItem("pcmaster_cart")) || [];
 
 // Lista de produtos para adicionar ao carrinho
 const products = {
-  1: { id: "1", name: "PC Gamer RTX 4070 Super", price: 4999, image: "/IMG2.png" },
-  2: { id: "2", name: "Workstation Pro Creator", price: 7299, image: "/IMG.png" },
-  3: { id: "3", name: "PC Entry Level Gamer", price: 1899, image: "/IMG4.png" },
-  4: { id: "4", name: "PC Extreme Gaming 4K", price: 12999, image: "/IMG5.png" },
-  5: { id: "5", name: "Working Pro Creator", price: 10599, image: "/IMG3.png" },
-  6: { id: "6", name: "Workstation Compact", price: 3499, image: "/IMG6.png" },
+  1: { id: "1", name: "PC Gamer RTX 4070 Super", price: 4999, image: "/Speed-Electro/IMG2.png" },
+  2: { id: "2", name: "Workstation Pro Creator", price: 7299, image: "/Speed-Electro/IMG.png" },
+  3: { id: "3", name: "PC Entry Level Gamer", price: 1899, image: "/Speed-Electro/IMG4.png" },
+  4: { id: "4", name: "PC Extreme Gaming 4K", price: 12999, image: "/Speed-Electro/IMG5.png" },
+  5: { id: "5", name: "Working Pro Creator", price: 10599, image: "/Speed-Electro/IMG3.png" },
+  6: { id: "6", name: "Workstation Compact", price: 3499, image: "/Speed-Electro/IMG6.png" },
 };
 
 /**
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       addToCart(productId);
       // Redireciona para a página de checkout.html
       // Corrigindo o caminho para a página de checkout
-      window.location.href = "/Paginas/checkout.html";
+      window.location.href = "./Paginas/checkout.html";
     });
   });
 });
