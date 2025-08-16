@@ -67,11 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       const productId = this.getAttribute("data-product-id");
+      
+      // Adiciona o produto ao carrinho
       addToCart(productId);
 
-      // Redireciona para a página do carrinho após adicionar o produto
-      // Corrigindo o caminho para a página do carrinho
-      window.location.href = "/Paginas/Carinho.html";
+      // Exibe feedback visual e não redireciona
+      const originalText = this.innerHTML;
+      this.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
+      this.style.background = "#10b981";
+      this.disabled = true;
+
+      setTimeout(() => {
+        this.innerHTML = originalText;
+        this.style.background = "";
+        this.disabled = false;
+      }, 2000);
     });
   });
 
