@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - SpeedElectro</title>
-    <link rel="stylesheet" href="../Paginas/Estilos/styl.css">
+    <link rel="stylesheet" href="/Paginas/Estilos/styl.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,29 +14,31 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-               <a href="/Speed-Electro/index.html" class="logo">
+                <a href="/index.html" class="logo">
                     <i class="fas fa-desktop"></i>
                     <span>Speed<span class="logo-accent">Electro</span></span>
                 </a>
 
                 <nav class="nav-desktop">
-    <a href="/Speed-Electro/index.html" class="nav-link">Início</a>
-    <a href="/Speed-Electro/index.html#servicos" class="nav-link">Serviço</a>
-    <a href="/Speed-Electro/index.html#produtos" class="nav-link">Produto</a>
-    <a href="/Speed-Electro/index.html#montagem" class="nav-link">Monte seu PC</a>
-</nav>
+                    <a href="/index.html" class="nav-link">Início</a>
+                    <a href="/index.html#servicos" class="nav-link">Serviço</a>
+                    <a href="/index.html#produtos" class="nav-link">Produto</a>
+                    <a href="/index.html#montagem" class="nav-link">Monte seu PC</a>
+                </nav>
 
                 <div class="header-actions">
-                   <button class="icon-btn" id="searchBtn" title="Buscar">
+                    <button class="icon-btn" id="searchBtn" title="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
-                               <a href="../Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
+                    <a href="/Paginas/Carinho.html" class="icon-btn cart-btn" title="Carrinho">
     <i class="fas fa-shopping-cart"></i>
     <span class="cart-count" id="cartCount">0</span>
 </a>
-                    <a href="../Paginas/Cadastro.html" class="icon-btn" title="Minha Conta">
+                    <a href="/Paginas/Cadastro.html" class="icon-btn" title="Minha Conta">
     <i class="fas fa-user"></i>
 </a>
+
+                    <a href="/Paginas/Cadastro.html" class="btn btn-outline">Login</a>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -47,578 +49,316 @@
             </div>
         </div>
     </header>
-
     <!-- Promotional Banner -->
     <section class="promo-banner" style="margin-top: 80px;">
         <div class="container">
             <div class="">
-                <video class="promo-video" autoplay muted loop playsinline>
-  <source src="/Speed-Electro/Senai .mp4" type="video/mp4">
-  Seu navegador não suporta vídeos HTML5.
-</video>
-                <div class="banner-overlay">
-                    <div class="banner-content">
-                        <h2>MEGA PROMOÇÃO</h2>
-                        <p>Até 30% OFF em PCs Gamer</p>
-                        <button class="btn btn-primary btn-large">
-                            <i class="fas fa-bolt"></i>
-                            Ver Ofertas
-                        </button>
-                    </div>
-                </div>
+                <video class="promo-video" autoplay loop muted playsinline>
+                    <source src="/Videos/Promo.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section" style="padding: 60px 0;">
+    <!-- Main Content -->
+    <section class="products-page">
         <div class="container">
-            <div class="section-header" style="margin-bottom: 48px;">
-                <div class="section-badge">
-                    <i class="fas fa-desktop"></i>
-                    <span>Catálogo Completo</span>
-                </div>
-                <h2 class="section-title">
-                    Nossos <span class="text-gradient">Computadores</span>
-                </h2>
-                <p class="section-description">
-                    Encontre o PC perfeito para suas necessidades
-                </p>
-            </div>
-
-            <div class="products-layout">
-                <!-- Filters Sidebar -->
-                <aside class="filters-sidebar">
-                    <div class="filters-container">
-                        <div class="filter-header">
-                            <h3>Filtros</h3>
-                            <button class="btn btn-primary btn-large" onclick="clearAllFilters()">
-                                <i class="fas fa-times"></i>
-                                Limpar
-                            </button>
+            <div class="products-grid-container">
+                <aside class="sidebar-filter">
+                    <div class="filter-header">
+                        <h2>Filtros</h2>
+                        <button class="clear-filters">Limpar Tudo</button>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Categorias</h3>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="gamer">
+                            <span>Gamer</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="profissional">
+                            <span>Profissional</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="escritorio">
+                            <span>Escritório</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="notebook">
+                            <span>Notebooks</span>
+                        </label>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Preço</h3>
+                        <div class="price-range">
+                            <input type="number" placeholder="Min" class="price-input">
+                            <span>-</span>
+                            <input type="number" placeholder="Max" class="price-input">
                         </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Marca</h3>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="nvidia">
+                            <span>NVIDIA</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="amd">
+                            <span>AMD</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="intel">
+                            <span>Intel</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="asus">
+                            <span>ASUS</span>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary btn-full apply-filters">Aplicar Filtros</button>
+                </aside>
 
-                        <!-- Search Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-search"></i>
-                                Buscar Produto
-                            </label>
-                            <input type="text" id="productSearch" class="product-badge discount" placeholder="Digite o nome do produto...">
+                <main class="main-products-area">
+                    <div class="products-toolbar">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Buscar neste departamento..." class="search-input">
+                            <i class="fas fa-search"></i>
                         </div>
-
-                        <!-- Category Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-tags"></i>
-                                Categoria
-                            </label>
-                            <div class="filter-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="category-filter" value="gaming" checked>
-                                    <span class="checkmark"></span>
-                                    <span>Gaming</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="category-filter" value="workstation" checked>
-                                    <span class="checkmark"></span>
-                                    <span>Workstation</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="category-filter" value="office" checked>
-                                    <span class="checkmark"></span>
-                                    <span>Escritório</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="category-filter" value="premium" checked>
-                                    <span class="checkmark"></span>
-                                    <span>Premium</span>
-                                </label>
-                            </div>
+                        <div class="sort-by">
+                            <span>Ordenar por:</span>
+                            <select>
+                                <option>Mais Vendidos</option>
+                                <option>Menor Preço</option>
+                                <option>Maior Preço</option>
+                                <option>Avaliações</option>
+                            </select>
                         </div>
+                    </div>
 
-                        <!-- Price Range Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-dollar-sign"></i>
-                                Faixa de Preço
-                            </label>
-                            <div class="price-range">
-                                <input type="range" id="priceRange" min="500" max="15000" value="15000" class="range-slider">
-                                <div class="price-display">
-                                    <span>R$ 500</span>
-                                    <span id="maxPrice">R$ 15.000</span>
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Product Card 1 -->
+                        <div class="product-card" data-category="gamer">
+                            <a href="#" class="product-link">
+                                <span class="product-badge">NOVO</span>
+                                <div class="product-image-wrapper">
+                                    <img src="/IMG2.png" alt="PC Gamer RTX 4070 Super">
+                                </div>
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-title">PC Gamer RTX 4070 Super</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span>(14 avaliações)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old">R$ 5.999,00</span>
+                                    <span class="price-new">R$ 4.999,00</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary add-to-cart" data-product-id="1">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                    <button class="btn btn-outline quick-view-btn" data-product-id="1">
+                                        <i class="fas fa-eye"></i> Visualizar
+                                    </button>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Brand Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-building"></i>
-                                Marca
-                            </label>
-                            <div class="filter-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="brand-filter" value="speedelectro" checked>
-                                    <span class="checkmark"></span>
-                                    <span>SpeedElectro</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="brand-filter" value="custom" checked>
-                                    <span class="checkmark"></span>
-                                    <span>Custom Build</span>
-                                </label>
+                        <!-- Product Card 2 -->
+                        <div class="product-card" data-category="profissional">
+                            <a href="#" class="product-link">
+                                <span class="product-badge">NOVO</span>
+                                <div class="product-image-wrapper">
+                                    <img src="/IMG.png" alt="Workstation Pro Creator">
+                                </div>
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-title">Workstation Pro Creator</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>(20 avaliações)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old">R$ 8.500,00</span>
+                                    <span class="price-new">R$ 7.299,00</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary add-to-cart" data-product-id="2">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                    <button class="btn btn-outline quick-view-btn" data-product-id="2">
+                                        <i class="fas fa-eye"></i> Visualizar
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- GPU Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-microchip"></i>
-                                Placa de Vídeo
-                            </label>
-                            <div class="filter-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="gpu-filter" value="rtx4090" checked>
-                                    <span class="checkmark"></span>
-                                    <span>RTX 4090</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="gpu-filter" value="rtx4080" checked>
-                                    <span class="checkmark"></span>
-                                    <span>RTX 4080</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="gpu-filter" value="rtx4070" checked>
-                                    <span class="checkmark"></span>
-                                    <span>RTX 4070</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="gpu-filter" value="rtx4060" checked>
-                                    <span class="checkmark"></span>
-                                    <span>RTX 4060</span>
-                                </label>
+                        <!-- Product Card 3 -->
+                        <div class="product-card" data-category="gamer">
+                            <a href="#" class="product-link">
+                                <span class="product-badge discount">-15%</span>
+                                <div class="product-image-wrapper">
+                                    <img src="/IMG4.png" alt="PC Entry Level Gamer">
+                                </div>
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-title">PC Entry Level Gamer</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(52 avaliações)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old">R$ 2.250,00</span>
+                                    <span class="price-new">R$ 1.899,00</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary add-to-cart" data-product-id="3">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                    <button class="btn btn-outline quick-view-btn" data-product-id="3">
+                                        <i class="fas fa-eye"></i> Visualizar
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- RAM Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-memory"></i>
-                                Memória RAM
-                            </label>
-                            <div class="filter-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="ram-filter" value="16gb" checked>
-                                    <span class="checkmark"></span>
-                                    <span>16GB</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="ram-filter" value="32gb" checked>
-                                    <span class="checkmark"></span>
-                                    <span>32GB</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="ram-filter" value="64gb" checked>
-                                    <span class="checkmark"></span>
-                                    <span>64GB</span>
-                                </label>
+                        <!-- Product Card 4 -->
+                        <div class="product-card" data-category="gamer">
+                            <a href="#" class="product-link">
+                                <span class="product-badge discount">-10%</span>
+                                <div class="product-image-wrapper">
+                                    <img src="/IMG5.png" alt="PC Extreme Gaming 4K">
+                                </div>
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-title">PC Extreme Gaming 4K</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>(8 avaliações)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old">R$ 14.500,00</span>
+                                    <span class="price-new">R$ 12.999,00</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary add-to-cart" data-product-id="4">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                    <button class="btn btn-outline quick-view-btn" data-product-id="4">
+                                        <i class="fas fa-eye"></i> Visualizar
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Storage Filter -->
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-hdd"></i>
-                                Armazenamento
-                            </label>
-                            <div class="filter-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="storage-filter" value="1tb" checked>
-                                    <span class="checkmark"></span>
-                                    <span>1TB SSD</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="storage-filter" value="2tb" checked>
-                                    <span class="checkmark"></span>
-                                    <span>2TB SSD</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" class="storage-filter" value="4tb" checked>
-                                    <span class="checkmark"></span>
-                                    <span>4TB SSD</span>
-                                </label>
+                        <!-- Product Card 5 -->
+                        <div class="product-card" data-category="profissional">
+                            <a href="#" class="product-link">
+                                <span class="product-badge">OFERTA</span>
+                                <div class="product-image-wrapper">
+                                    <img src="/IMG3.png" alt="Working Pro Creator">
+                                </div>
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-title">Working Pro Creator</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span>(10 avaliações)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old">R$ 11.200,00</span>
+                                    <span class="price-new">R$ 10.599,00</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary add-to-cart" data-product-id="5">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                    <button class="btn btn-outline quick-view-btn" data-product-id="5">
+                                        <i class="fas fa-eye"></i> Visualizar
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </aside>
 
-                <!-- Products Grid -->
-                <main class="products-main">
-                    <!-- Sort and View Options -->
-                    <div class="products-toolbar">
-                        <div class="results-info">
-                            <span id="productCount">6</span> produtos encontrados
+                        <!-- Product Card 6 -->
+                        <div class="product-card" data-category="escritorio">
+                            <a href="#" class="product-link">
+                                <span class="product-badge">NOVO</span>
+                                <div class="product-image-wrapper">
+                                    <img src="/IMG6.png" alt="Workstation Compact">
+                                </div>
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-title">Workstation Compact</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>(12 avaliações)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-new">R$ 3.499,00</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary add-to-cart" data-product-id="6">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                    <button class="btn btn-outline quick-view-btn" data-product-id="6">
+                                        <i class="fas fa-eye"></i> Visualizar
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="toolbar-actions">
-                            <select id="sortSelect" class="section-badge">
-                                <option value="relevance">Mais Relevantes</option>
-                                <option value="price-low">Menor Preço</option>
-                                <option value="price-high">Maior Preço</option>
-                                <option value="newest">Mais Recentes</option>
-                                <option value="rating">Melhor Avaliados</option>
-                            </select>
-                            <div class="view-toggle">
-                                <button class="product-badge discount" data-view="grid">
-                                    <i class="fas fa-th"></i>
+
+                        <!-- Botão de "Comprar Agora" foi alterado para ser um botão e acionado via JavaScript -->
+                        <div class="product-card" data-category="gamer">
+                            <div class="product-info">
+                                <button class="btn btn-primary add-to-cart" data-product-id="1">
+                                    <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
                                 </button>
-                                <button class="product-badge discount" data-view="list">
-                                    <i class="fas fa-list"></i>
+                                <button class="btn btn-outline btn-full buy-now">
+                                    <i class="fas fa-bolt"></i>
+                                    Comprar Agora
                                 </button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Products Grid -->
-                    <div class="products-grid" id="productsGrid">
-                        <!-- Product 1 -->
-                        <div class="product-card" data-category="office" data-price="899">
-                    <div class="product-image">
-                        <img src="/Speed-Electro/IMG3.png" alt="PC Office" loading="lazy">
-                        <div class="product-badges">
-                            <span class="product-badge efficient">Eficiente</span>
-                            <span class="product-badge discount">-20%</span>
-                        </div>
-                        <div class="product-overlay">
-                            <button class="product-action-btn quick-view" data-product="pc-office">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="product-action-btn add-wishlist">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="product-action-btn compare">
-                                <i class="fas fa-balance-scale"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Workstation</div>
-                        <h3 class="product-title">Working Pro Creator</h3>
-                        <div class="product-rating">
-                           <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(156 avaliações)</span>
-                        </div>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i>RX 9070 XT 16GB</li>
-                            <li><i class="fas fa-memory"></i>Ryzen 7 9800X3d</li>
-                            <li><i class="fas fa-hdd"></i>64GB DDR5 + SSD 3TB</li>
-                        </ul>
-                        <div class="product-price">
-                            <span class="current-price">R$ 10.599,00</span>
-                            <span class="original-price">R$ 1.129,00</span>
-                            <span class="installments">12x R$ 74,92</span>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-full add-to-cart" data-product-id="5">
-                                <i class="fas fa-shopping-cart"></i>
-                                Adicionar ao Carrinho
-                            </button>
-                            <button class="btn btn-outline btn-full buy-now">
-                                <i class="fas fa-bolt"></i>
-                                Comprar Agora
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                        <!-- Product 2 -->
-                        <div class="product-card" data-category="gaming" data-price="4999">
-                    <div class="product-image">
-                        <img src="/Speed-Electro/IMG2.png" alt="PC Gamer RTX 4070" loading="lazy">
-                        <div class="product-badges">
-                            <span class="product-badge bestseller">Mais Vendido</span>
-                            <span class="product-badge discount">-9%</span>
-                        </div>
-                        <div class="product-overlay">
-                            <button class="product-action-btn quick-view" data-product="pc-gamer-rtx4070">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="product-action-btn add-wishlist">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="product-action-btn compare">
-                                <i class="fas fa-balance-scale"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Gaming</div>
-                        <h3 class="product-title">PC Gamer RTX 4070 Super</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(124 avaliações)</span>
-                        </div>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i>RTX 4070 Super 12GB</li>
-                            <li><i class="fas fa-memory"></i>Ryzen 7 5700X</li>
-                            <li><i class="fas fa-hdd"></i>16GB DDR4 + SSD 1TB</li>
-                        </ul>
-                        <div class="product-price">
-                            <span class="current-price">R$ 4.999,00</span>
-                            <span class="original-price">R$ 5.499,00</span>
-                            <span class="installments">12x R$ 416,58</span>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-full add-to-cart" data-product-id="1">
-                                <i class="fas fa-shopping-cart"></i>
-                                Adicionar ao Carrinho
-                            </button>
-                            <button class="btn btn-outline btn-full buy-now">
-                                <i class="fas fa-bolt"></i>
-                                Comprar Agora
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                        <!-- Product 3 -->
-                        <div class="product-card" data-category="workstation" data-price="7299">
-                    <div class="product-image">
-                        <img src="/Speed-Electro/IMG.png" alt="Workstation Pro" loading="lazy">
-                        <div class="product-badges">
-                            <span class="product-badge professional">Profissional</span>
-                            <span class="product-badge discount">-9%</span>
-                        </div>
-                        <div class="product-overlay">
-                            <button class="product-action-btn quick-view" data-product="workstation-pro">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="product-action-btn add-wishlist">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="product-action-btn compare">
-                                <i class="fas fa-balance-scale"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Workstation</div>
-                        <h3 class="product-title">Workstation Pro Creator</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(89 avaliações)</span>
-                        </div>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i>RTX 4080 16GB</li>
-                            <li><i class="fas fa-memory"></i>Intel i7-13700K</li>
-                            <li><i class="fas fa-hdd"></i>32GB DDR5 + SSD 2TB</li>
-                        </ul>
-                        <div class="product-price">
-                            <span class="current-price">R$ 7.299,00</span>
-                            <span class="original-price">R$ 7.999,00</span>
-                            <span class="installments">12x R$ 608,25</span>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-full add-to-cart" data-product-id="2">
-                                <i class="fas fa-shopping-cart"></i>
-                                Adicionar ao Carrinho
-                            </button>
-                            <button class="btn btn-outline btn-full buy-now">
-                                <i class="fas fa-bolt"></i>
-                                Comprar Agora
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                        <!-- Product 4 -->
-                        <div class="product-card" data-category="budget" data-price="1899">
-                    <div class="product-image">
-                        <img src="/Speed-Electro/IMG4.png" alt="PC Entry Level" loading="lazy">
-                        <div class="product-badges">
-                            <span class="product-badge value">Melhor Custo</span>
-                            <span class="product-badge discount">-14%</span>
-                        </div>
-                        <div class="product-overlay">
-                            <button class="product-action-btn quick-view" data-product="pc-entry">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="product-action-btn add-wishlist">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="product-action-btn compare">
-                                <i class="fas fa-balance-scale"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Econômico</div>
-                        <h3 class="product-title">PC Entry Level Gamer</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-count">(203 avaliações)</span>
-                        </div>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i>GTX 1660 Super 6GB</li>
-                            <li><i class="fas fa-memory"></i>Ryzen 5 4600G</li>
-                            <li><i class="fas fa-hdd"></i>16GB DDR4 + SSD 512GB</li>
-                        </ul>
-                        <div class="product-price">
-                            <span class="current-price">R$ 1.899,00</span>
-                            <span class="original-price">R$ 2.199,00</span>
-                            <span class="installments">12x R$ 158,25</span>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-full add-to-cart" data-product-id="3">
-                                <i class="fas fa-shopping-cart"></i>
-                                Adicionar ao Carrinho
-                            </button>
-                            <button class="btn btn-outline btn-full buy-now">
-                                <i class="fas fa-bolt"></i>
-                                Comprar Agora
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-                        <!-- Product 5 -->
-                        <div class="product-card" data-category="gaming" data-price="12999">
-                    <div class="product-image">
-                        <img src="/Speed-Electro/IMG5.png" alt="PC Extreme Gaming" loading="lazy">
-                        <div class="product-badges">
-                            <span class="product-badge premium">Top de Linha</span>
-                            <span class="product-badge discount">-10%</span>
-                        </div>
-                        <div class="product-overlay">
-                            <button class="product-action-btn quick-view" data-product="pc-extreme">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="product-action-btn add-wishlist">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="product-action-btn compare">
-                                <i class="fas fa-balance-scale"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Gaming Premium</div>
-                        <h3 class="product-title">PC Extreme Gaming 4K</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(67 avaliações)</span>
-                        </div>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i>RTX 4090 24GB</li>
-                            <li><i class="fas fa-memory"></i>Intel i9-13900K</li>
-                            <li><i class="fas fa-hdd"></i>64GB DDR5 + SSD 4TB</li>
-                        </ul>
-                        <div class="product-price">
-                            <span class="current-price">R$ 12.999,00</span>
-                            <span class="original-price">R$ 14.499,00</span>
-                            <span class="installments">12x R$ 1.083,25</span>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-full add-to-cart" data-product-id="4">
-                                <i class="fas fa-shopping-cart"></i>
-                                Adicionar ao Carrinho
-                            </button>
-                            <button class="btn btn-outline btn-full buy-now">
-                                <i class="fas fa-bolt"></i>
-                                Comprar Agora
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-                        <!-- Product 6 -->
-                        <div class="product-card" data-category="workstation" data-price="3499">
-                    <div class="product-image">
-                        <img src="/Speed-Electro/IMG6.png" alt="Workstation Compact" loading="lazy">
-                        <div class="product-badges">
-                            <span class="product-badge creative">Criativo</span>
-                            <span class="product-badge discount">-12%</span>
-                        </div>
-                        <div class="product-overlay">
-                            <button class="product-action-btn quick-view" data-product="workstation-compact">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="product-action-btn add-wishlist">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="product-action-btn compare">
-                                <i class="fas fa-balance-scale"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Workstation</div>
-                        <h3 class="product-title">Workstation Compact</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(94 avaliações)</span>
-                        </div>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-microchip"></i>RTX 4060 Ti 16GB</li>
-                            <li><i class="fas fa-memory"></i>Ryzen 7 7700X</li>
-                            <li><i class="fas fa-hdd"></i>32GB DDR5 + SSD 1TB</li>
-                        </ul>
-                        <div class="product-price">
-                            <span class="current-price">R$ 3.499,00</span>
-                            <span class="original-price">R$ 3.999,00</span>
-                            <span class="installments">12x R$ 291,58</span>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-full add-to-cart" data-product-id="6">
-                                <i class="fas fa-shopping-cart"></i>
-                                Adicionar ao Carrinho
-                            </button>
-                            <button class="btn btn-outline btn-full buy-now">
-                                <i class="fas fa-bolt"></i>
-                                Comprar Agora
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
                     <!-- Pagination -->
                     <div class="pagination">
@@ -643,7 +383,7 @@
         </div>
     </section>
 
-    <script src="/Speed-Electro/reaview.js"></script>
+    <script src="/reaview.js"></script>
     <script src="/Speed-Electro/uniao.js"></script>
 </body>
 </html>
