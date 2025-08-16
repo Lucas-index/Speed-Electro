@@ -33,9 +33,10 @@
     <i class="fas fa-shopping-cart"></i>
     <span class="cart-count" id="cartCount">0</span>
 </a>
-                    <a href="../Paginas/Cadastro.html" class="icon-btn" title="Minha Conta">
-    <i class="fas fa-user"></i>
+                    <a id="accountBtn" href="../Paginas/Login.html" class="icon-btn" title="Fazer Login">
+  <i class="fas fa-user"></i>
 </a>
+
 
                 </div>
 
@@ -648,7 +649,7 @@
                 description: 'RTX 4070 Super 12GB • Ryzen 7 5700X • 16GB DDR4',
                 price: 4999.00,
                 quantity: 1,
-                image: '/Speed-ElectroIMG2.png' // Caminho da imagem ajustado
+                image: '/Speed-Electro/IMG2.png' // Caminho da imagem ajustado
             },
             {
                 id: 2,
@@ -656,7 +657,7 @@
                 description: 'RTX 4080 16GB • Intel i7-13700K • 32GB DDR5 + SSD 2TB',
                 price: 7299.00,
                 quantity: 1,
-                image: '/Speed-ElectroIMG.png' // Caminho da imagem ajustado
+                image: '/Speed-Electro/IMG.png' // Caminho da imagem ajustado
             },
             {
                 id: 3,
@@ -664,7 +665,7 @@
                 description: 'GTX 1660 Super 6GB • Ryzen 5 4600G • 16GB DDR4 + SSD 512GB',
                 price: 1899.00,
                 quantity: 1,
-                image: '/Speed-ElectroIMG4.png' // Caminho da imagem ajustado
+                image: '/Speed-Electro/IMG4.png' // Caminho da imagem ajustado
             },
             {
                 id: 4,
@@ -672,7 +673,7 @@
                 description: 'RTX 4090 24GB • Intel i9-13900K • 64GB DDR5 + SSD 4TB',
                 price: 12999.00,
                 quantity: 1,
-                image: '/Speed-ElectroIMG5.png' // Caminho da imagem ajustado
+                image: '/Speed-Electro/IMG5.png' // Caminho da imagem ajustado
             },
             {
                 id: 5,
@@ -680,7 +681,7 @@
                 description: 'RX 9070 XT 16GB • Ryzen 7 9800X3d • 64GB DDR5 + SSD 3TB',
                 price: 10599.00,
                 quantity: 1,
-                image: '/Speed-ElectroIMG3.png' // Caminho da imagem ajustado
+                image: '/Speed-Electro/IMG3.png' // Caminho da imagem ajustado
             },
             {
                 id: 6,
@@ -688,7 +689,7 @@
                 description: 'RTX 4060 Ti 16GB • Ryzen 7 7700X • 32GB DDR5 + SSD 1TB',
                 price: 3499.00,
                 quantity: 1,
-                image: 'IMG6.png' // Caminho da imagem ajustado
+                image: '/Speed-Electro/IMG6.png' // Caminho da imagem ajustado
             }
         ];
 
@@ -903,7 +904,7 @@ class ProductsManager {
   }
 
   initializeViewToggle() {
-    const viewBtns = document.querySelectorAll(".view-btn")
+    const viewBtns = document.querySelectorAll(".view-toggle button")
     viewBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         // Remove active class from all buttons
