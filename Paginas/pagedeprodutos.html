@@ -1166,14 +1166,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const accountBtn = document.getElementById("accountBtn");
 
   onAuthStateChanged(auth, (user) => {
-    if (user) {
-      accountBtn.href = "/perfil.html";
-      accountBtn.title = "Meu Perfil";
-    } else {
-      accountBtn.href = "./Paginas/Login.html";
-      accountBtn.title = "Fazer Login";
-    }
-  });
+  if (user) {
+    accountBtn.href = "/Speed-Electro/Paginas/perfil.html";
+    accountBtn.title = "Meu Perfil";
+  } else {
+    accountBtn.href = "/Speed-Electro/Paginas/Login.html";
+    accountBtn.title = "Fazer Login";
+  }
+});
 </script>
 </body>
 </html>
