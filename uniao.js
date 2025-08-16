@@ -1,16 +1,21 @@
 // Carrinho salvo localmente
 let cart = JSON.parse(localStorage.getItem("pcmaster_cart")) || [];
 
-function addToCart(productId) {
-  const products = {
-    1: { id: "1", name: "PC Gamer RTX 4070 Super", price: 4999, image: "/IMG2.png" },
-    2: { id: "2", name: "Workstation Pro Creator", price: 7299, image: "/IMG.png" },
-    3: { id: "3", name: "PC Entry Level Gamer", price: 1899, image: "/IMG4.png" },
-    4: { id: "4", name: "PC Extreme Gaming 4K", price: 12999, image: "/IMG5.png" },
-    5: { id: "5", name: "Working Pro Creator", price: 10599, image: "/IMG3.png" },
-    6: { id: "6", name: "Workstation Compact", price: 3499, image: "/IMG6.png" },
-  };
+// Lista de produtos para adicionar ao carrinho
+const products = {
+  1: { id: "1", name: "PC Gamer RTX 4070 Super", price: 4999, image: "/IMG2.png" },
+  2: { id: "2", name: "Workstation Pro Creator", price: 7299, image: "/IMG.png" },
+  3: { id: "3", name: "PC Entry Level Gamer", price: 1899, image: "/IMG4.png" },
+  4: { id: "4", name: "PC Extreme Gaming 4K", price: 12999, image: "/IMG5.png" },
+  5: { id: "5", name: "Working Pro Creator", price: 10599, image: "/IMG3.png" },
+  6: { id: "6", name: "Workstation Compact", price: 3499, image: "/IMG6.png" },
+};
 
+/**
+ * Adiciona um produto ao carrinho e salva no localStorage.
+ * @param {string} productId O ID do produto a ser adicionado.
+ */
+function addToCart(productId) {
   const product = products[productId];
   if (!product) return;
 
@@ -27,38 +32,24 @@ function addToCart(productId) {
   showCartNotification(product.name);
 }
 
+/**
+ * Atualiza a exibição do contador de itens no carrinho.
+ */
 function updateCartDisplay() {
   const cartCount = document.getElementById("cartCount");
-  if (!cartCount) return;
-
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartCount.textContent = totalItems;
-  cartCount.style.display = totalItems > 0 ? "block" : "none";
-}
-
-function updateQuantity(productId, newQuantity) {
-  if (newQuantity <= 0) {
-    removeFromCart(productId);
-    return;
-  }
-
-  const item = cart.find((item) => item.id === productId);
-  if (item) {
-    item.quantity = newQuantity;
-    localStorage.setItem("pcmaster_cart", JSON.stringify(cart));
-    updateCartDisplay();
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  if (cartCount) {
+    cartCount.textContent = totalItems;
   }
 }
 
-function removeFromCart(productId) {
-  cart = cart.filter((item) => item.id !== productId);
-  localStorage.setItem("pcmaster_cart", JSON.stringify(cart));
-  updateCartDisplay();
-}
-
+/**
+ * Exibe uma notificação pop-up para o usuário.
+ * @param {string} productName O nome do produto adicionado.
+ */
 function showCartNotification(productName) {
   const notification = document.createElement("div");
-  notification.className = "cart-notification";
+  notification.classList.add("cart-notification");
   notification.innerHTML = `
     <i class="fas fa-check-circle"></i>
     <span>${productName} adicionado ao carrinho!</span>
@@ -78,50 +69,114 @@ document.addEventListener("DOMContentLoaded", () => {
       const productId = this.getAttribute("data-product-id");
       addToCart(productId);
 
-      // Feedback visual
-      const originalText = this.innerHTML;
-      this.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
-      this.style.background = "#10b981";
-      this.disabled = true;
-
-      setTimeout(() => {
-        this.innerHTML = originalText;
-        this.style.background = "";
-        this.disabled = false;
-      }, 2000);
+      // Redireciona para a página do carrinho após adicionar o produto
+      window.location.href = "Carinho.html";
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
   const buyNowBtns = document.querySelectorAll(".buy-now");
   buyNowBtns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       const productId = this.previousElementSibling.getAttribute("data-product-id");
       addToCart(productId);
-      window.location.href = "../Paginas/Carinho.html";
+      // Redireciona para a página de checkout.html
+      window.location.href = "checkout.html";
     });
   });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  updateCartDisplay(); // atualiza o contador logo que a página carrega
+  const cartTableBody = document.getElementById("cartItems");
+  const orderTotalSpan = document.getElementById("orderTotal");
+  const clearCartBtn = document.getElementById("clearCartBtn");
+
+  /**
+   * Renderiza os itens do carrinho na tabela.
+   */
+  function renderCartItems() {
+    if (!cartTableBody) return;
+
+    cartTableBody.innerHTML = '';
+    if (cart.length === 0) {
+      cartTableBody.innerHTML = '<tr><td colspan="5" class="empty-cart-message">Seu carrinho está vazio.</td></tr>';
+      return;
+    }
+
+    cart.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><img src="${item.image}" alt="${item.name}" class="cart-item-image"></td>
+        <td>${item.name}</td>
+        <td>R$ ${item.price.toFixed(2)}</td>
+        <td>
+          <input type="number" value="${item.quantity}" min="1" class="item-quantity" data-id="${item.id}">
+        </td>
+        <td>R$ ${(item.price * item.quantity).toFixed(2)}</td>
+        <td>
+          <button class="remove-item-btn" data-id="${item.id}">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      `;
+      cartTableBody.appendChild(row);
+    });
+    
+    // Adiciona os event listeners para os botões de remover e inputs de quantidade
+    document.querySelectorAll('.remove-item-btn').forEach(button => {
+      button.addEventListener('click', removeItem);
+    });
+    document.querySelectorAll('.item-quantity').forEach(input => {
+      input.addEventListener('change', updateItemQuantity);
+    });
+    renderOrderSummary();
+  }
+
+  /**
+   * Atualiza o resumo do pedido.
+   */
+  function renderOrderSummary() {
+    if (!orderTotalSpan) return;
+
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    orderTotalSpan.textContent = subtotal.toFixed(2);
+  }
+
+  /**
+   * Remove um item do carrinho.
+   * @param {Event} e O evento de clique.
+   */
+  function removeItem(e) {
+    const itemId = e.currentTarget.getAttribute('data-id');
+    cart = cart.filter(item => item.id !== itemId);
+    localStorage.setItem("pcmaster_cart", JSON.stringify(cart));
+    renderCartItems();
+  }
+
+  /**
+   * Atualiza a quantidade de um item no carrinho.
+   * @param {Event} e O evento de alteração.
+   */
+  function updateItemQuantity(e) {
+    const itemId = e.currentTarget.getAttribute('data-id');
+    const newQuantity = parseInt(e.currentTarget.value);
+    if (newQuantity < 1) return;
+
+    const item = cart.find(item => item.id === itemId);
+    if (item) {
+      item.quantity = newQuantity;
+      localStorage.setItem("pcmaster_cart", JSON.stringify(cart));
+      renderCartItems();
+    }
+  }
+
+  if (clearCartBtn) {
+    clearCartBtn.addEventListener('click', () => {
+      cart = [];
+      localStorage.setItem("pcmaster_cart", JSON.stringify(cart));
+      renderCartItems();
+    });
+  }
+
+  renderCartItems();
 });
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
-  authDomain: "seedelectro.firebaseapp.com",
-  projectId: "seedelectro",
-  storageBucket: "seedelectro.firebasestorage.app",
-  messagingSenderId: "275204209258",
-  appId: "1:275204209258:web:aec29e2797350ac136e813",
-  measurementId: "G-RQY204S4E0"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-
-
