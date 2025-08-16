@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       addToCart(productId);
       // Redireciona para a página de checkout.html
       // Corrigindo o caminho para a página de checkout
-      window.location.href = "./Paginas/checkout.html";
+      window.location.href = "/Paginas/checkout.html";
     });
   });
 });
