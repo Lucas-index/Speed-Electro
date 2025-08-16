@@ -33,7 +33,7 @@
     <i class="fas fa-shopping-cart"></i>
     <span class="cart-count" id="cartCount">0</span>
 </a>
-                    <a id="accountBtn" href="/Paginas/Login.html" class="icon-btn" title="Fazer Login">
+                    <a id="accountBtn" href="../Paginas/Login.html" class="icon-btn" title="Fazer Login">
   <i class="fas fa-user"></i>
 </a>
 
@@ -1167,7 +1167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      accountBtn.href = "./Paginas/perfil.html";
+      accountBtn.href = "/Paginas/perfil.html";
       accountBtn.title = "Meu Perfil";
     } else {
       accountBtn.href = "./Paginas/Login.html";
