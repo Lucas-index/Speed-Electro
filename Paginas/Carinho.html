@@ -139,13 +139,13 @@
 
         // Função para obter o carrinho do localStorage
         function getCart() {
-            const cartData = localStorage.getItem('pcmaster_cart'); // ALTERADO: Usar 'pcmaster_cart'
+            const cartData = localStorage.getItem('cart'); // ALTERADO: Usar 'pcmaster_cart'
             return cartData ? JSON.parse(cartData) : [];
         }
 
         // Função para salvar o carrinho no localStorage
         function saveCart(updatedCart) {
-            localStorage.setItem('pcmaster_cart', JSON.stringify(updatedCart)); // ALTERADO: Usar 'pcmaster_cart'
+            localStorage.setItem('cart', JSON.stringify(updatedCart)); // ALTERADO: Usar 'pcmaster_cart'
             updateCartCount(); // Atualiza o contador do carrinho na header
         }
 
