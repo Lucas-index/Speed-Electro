@@ -134,110 +134,150 @@
     </section>
 
     <script>
-        // Array de produtos disponíveis para adicionar ao carrinho.
-        // Os caminhos das imagens foram ajustados para serem relativos ao diretório raiz,
-        // o que funciona para ambas as páginas (index.html e Carinho.html).
-        const products = [
-            {
-                id: 1,
-                name: 'PC Gamer RTX 4070 Super',
-                description: 'RTX 4070 Super 12GB • Ryzen 7 5700X • 16GB DDR4',
-                price: 4999.00,
-                quantity: 1,
-                image: 'IMG2.png' // Caminho da imagem ajustado
-            },
-            {
-                id: 2,
-                name: 'Workstation Pro Creator',
-                description: 'RTX 4080 16GB • Intel i7-13700K • 32GB DDR5 + SSD 2TB',
-                price: 7299.00,
-                quantity: 1,
-                image: 'IMG.png' // Caminho da imagem ajustado
-            },
-            {
-                id: 3,
-                name: 'PC Entry Level Gamer',
-                description: 'GTX 1660 Super 6GB • Ryzen 5 4600G • 16GB DDR4 + SSD 512GB',
-                price: 1899.00,
-                quantity: 1,
-                image: 'IMG4.png' // Caminho da imagem ajustado
-            },
-            {
-                id: 4,
-                name: 'PC Extreme Gaming 4K',
-                description: 'RTX 4090 24GB • Intel i9-13900K • 64GB DDR5 + SSD 4TB',
-                price: 12999.00,
-                quantity: 1,
-                image: 'IMG5.png' // Caminho da imagem ajustado
-            },
-            {
-                id: 5,
-                name: 'Working Pro Creator',
-                description: 'RX 9070 XT 16GB • Ryzen 7 9800X3d • 64GB DDR5 + SSD 3TB',
-                price: 10599.00,
-                quantity: 1,
-                image: 'IMG3.png' // Caminho da imagem ajustado
-            },
-            {
-                id: 6,
-                name: 'Workstation Compact',
-                description: 'RTX 4060 Ti 16GB • Ryzen 7 7700X • 32GB DDR5 + SSD 1TB',
-                price: 3499.00,
-                quantity: 1,
-                image: 'IMG6.png' // Caminho da imagem ajustado
-            }
-        ];
+        let cart = [];
 
         // Função para obter o carrinho do localStorage ou iniciar um novo
         function getCart() {
-            const cart = localStorage.getItem('cart');
-            return cart ? JSON.parse(cart) : [];
+            const cartData = localStorage.getItem('cart');
+            return cartData ? JSON.parse(cartData) : [];
         }
 
         // Função para salvar o carrinho no localStorage
-        function saveCart(cart) {
-            localStorage.setItem('cart', JSON.stringify(cart));
+        function saveCart(updatedCart) {
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
         }
 
-        // Função para atualizar o contador do carrinho na header
-        function updateCartCount() {
-            const cart = getCart();
-            const cartCountElement = document.getElementById('cartCount');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCountElement.textContent = totalItems;
+        // Função para formatar o valor monetário
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(value);
         }
 
-        // Função para adicionar um produto ao carrinho
-        function addToCart(productId) {
-            const productToAdd = products.find(p => p.id === productId);
-            if (productToAdd) {
-                const cart = getCart();
-                const existingItem = cart.find(item => item.id === productId);
-                
-                if (existingItem) {
-                    existingItem.quantity++;
-                } else {
-                    cart.push({ ...productToAdd, quantity: 1 });
-                }
-                
-                saveCart(cart);
-                updateCartCount();
-                alert(`"${productToAdd.name}" adicionado ao carrinho!`);
+        // Função para renderizar os itens do carrinho no HTML
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = ''; // Limpa os itens existentes
+            
+            cart = getCart();
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div style="text-align: center; color: var(--gray-400); padding: 48px;">
+                        <i class="fas fa-box-open" style="font-size: 48px; margin-bottom: 16px;"></i>
+                        <p>Seu carrinho está vazio.</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.style.cssText = 'display: flex; align-items: center; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--gray-800);';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
+                        <div style="flex: 1;">
+                            <h4 style="color: var(--white); font-size: 18px; margin-bottom: 8px;">${item.name}</h4>
+                            <p style="color: var(--gray-400); font-size: 14px; margin-bottom: 8px;">${item.description}</p>
+                            <div style="color: var(--orange-500); font-weight: 600; font-size: 16px;">${formatCurrency(item.price)}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-800); border-radius: 8px; padding: 8px;">
+                                <button onclick="updateQuantity(${item.id}, -1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">-</button>
+                                <span style="color: var(--white); min-width: 20px; text-align: center;">${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)" style="background: none; border: none; color: var(--white); cursor: pointer; padding: 4px 8px;">+</button>
+                            </div>
+                            <button onclick="removeItem(${item.id})" style="background: none; border: none; color: var(--red-500); cursor: pointer; padding: 8px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItemElement);
+                });
             }
         }
 
-        // Adiciona um event listener para os botões de "Adicionar ao Carrinho"
-        document.addEventListener('DOMContentLoaded', () => {
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const productId = parseInt(button.getAttribute('data-product-id'));
-                    addToCart(productId);
-                });
+        // Função para recalcular e renderizar o resumo do pedido
+        function renderOrderSummary() {
+            let subtotal = 0;
+            let itemCount = 0;
+            const discount = 197; // Valor de desconto fixo para o exemplo
+            const maxInstallments = 12;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                itemCount += item.quantity;
             });
 
-            // Chama a função para atualizar o contador do carrinho ao carregar a página
-            updateCartCount();
+            const total = subtotal > discount ? subtotal - discount : 0;
+            const installmentValue = total / maxInstallments;
+            
+            document.getElementById('itemCount').textContent = itemCount;
+            document.getElementById('subtotalValue').textContent = formatCurrency(subtotal);
+            document.getElementById('discountValue').textContent = `- ${formatCurrency(discount)}`;
+            document.getElementById('totalValue').textContent = formatCurrency(total);
+            document.getElementById('installments').textContent = `${maxInstallments}x de ${formatCurrency(installmentValue)} sem juros`;
+        }
+
+        // Função para atualizar a quantidade de um item
+        function updateQuantity(itemId, change) {
+            const item = cart.find(i => i.id === itemId);
+            if (item) {
+                const newQuantity = item.quantity + change;
+                if (newQuantity > 0) {
+                    item.quantity = newQuantity;
+                } else {
+                    // Se a quantidade for zero ou negativa, remove o item
+                    removeItem(itemId);
+                    return; // Sai da função para evitar recálculo duplo
+                }
+                saveCart(cart);
+                renderCartItems();
+                renderOrderSummary();
+            }
+        }
+
+        // Função para remover um item do carrinho
+        function removeItem(itemId) {
+            if (confirm('Tem certeza que deseja remover este item?')) {
+                cart = cart.filter(item => item.id !== itemId);
+                saveCart(cart);
+                renderCartItems();
+                renderOrderSummary();
+            }
+        }
+
+        // Função para limpar todo o carrinho
+        function clearCart() {
+            if (confirm('Tem certeza que deseja limpar todo o carrinho?')) {
+                cart = [];
+                saveCart(cart);
+                renderCartItems();
+                renderOrderSummary();
+            }
+        }
+
+        // Função para aplicar um cupom (exemplo)
+        function applyCoupon() {
+            const couponCode = document.getElementById('couponInput').value;
+            alert(`Aplicando cupom: ${couponCode}`);
+            // Aqui você faria a lógica real de validação e aplicação do desconto
+        }
+
+        // Função para finalizar a compra
+        function checkout() {
+            alert('Redirecionando para o checkout...');
+            // Lógica para enviar os dados do carrinho e redirecionar para a página de pagamento
+            setTimeout(() => {
+                window.location.href = "checkout.html";
+            }, 500);
+        }
+
+        // Inicializa o carrinho quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            cart = getCart(); // Carrega o carrinho do localStorage
+            renderCartItems();
+            renderOrderSummary();
         });
     </script>
 </body>
