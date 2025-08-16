@@ -70,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
       addToCart(productId);
 
       // Redireciona para a página do carrinho após adicionar o produto
-      window.location.href = "Carinho.html";
+      // Corrigindo o caminho para a página do carrinho
+      window.location.href = "/Paginas/Carinho.html";
     });
   });
 
@@ -81,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const productId = this.previousElementSibling.getAttribute("data-product-id");
       addToCart(productId);
       // Redireciona para a página de checkout.html
-      window.location.href = "checkout.html";
+      // Corrigindo o caminho para a página de checkout
+      window.location.href = "/Paginas/checkout.html";
     });
   });
 });
