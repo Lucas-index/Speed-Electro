@@ -1045,5 +1045,35 @@ onAuthStateChanged(auth, (user) => {
             }
         }
     </style>
+    <script type="module">
+    
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
+  authDomain: "seedelectro.firebaseapp.com",
+  projectId: "seedelectro",
+  storageBucket: "seedelectro.firebasestorage.app",
+  messagingSenderId: "275204209258",
+  appId: "1:275204209258:web:aec29e2797350ac136e813",
+  measurementId: "G-RQY204S4E0"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const accountBtn = document.getElementById("accountBtn");
+
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+    accountBtn.href = "/Speed-Electro/Paginas/perfil.html";
+    accountBtn.title = "Meu Perfil";
+  } else {
+    accountBtn.href = "/Speed-Electro/Paginas/Login.html";
+    accountBtn.title = "Fazer Login";
+  }
+});
+</script>
 </body>
 </html>
