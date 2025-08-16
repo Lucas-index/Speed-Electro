@@ -109,4 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartDisplay(); // atualiza o contador logo que a página carrega
 });
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAwkDQfz5zSle0B7Lz0lEKZfT2-lk-3e3s",
+  authDomain: "seedelectro.firebaseapp.com",
+  projectId: "seedelectro",
+  storageBucket: "seedelectro.firebasestorage.app",
+  messagingSenderId: "275204209258",
+  appId: "1:275204209258:web:aec29e2797350ac136e813",
+  measurementId: "G-RQY204S4E0"
+};
+
 
