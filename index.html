@@ -1080,5 +1080,16 @@
         });
     </script>
     <script src="uniao.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buyNowButtons = document.querySelectorAll('.buy-now');
+    buyNowButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = "./Paginas/checkout.html";
+        });
+    });
+});
+</script>
+
 </body>
 </html>
